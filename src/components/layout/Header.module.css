@@ -1,0 +1,144 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+  background: #ffffff;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1200px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 12vw, 243.56px);
+  padding: 0 1rem;
+}
+
+.logoArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.accent {
+  width: 6px;
+  height: 40px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #02AFD2 0%, #0091A0 100%);
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoGlyph {
+  position: relative;
+  width: 116px;
+  height: 30px;
+}
+
+.glyphSegment {
+  position: absolute;
+  border-radius: 4px;
+}
+
+.glyph1 {
+  left: 0%;
+  right: 84.79%;
+  top: 0%;
+  bottom: 22.22%;
+  background: #02AFD2;
+}
+
+.glyph2 {
+  left: 16.37%;
+  right: 73.87%;
+  top: 18.89%;
+  bottom: 22.22%;
+  background: #02AFD2;
+}
+
+.glyph3 {
+  left: 27.3%;
+  right: 59.35%;
+  top: 18.89%;
+  bottom: 22.45%;
+  background: #02AFD2;
+}
+
+.glyph4 {
+  left: 41.83%;
+  right: 43.04%;
+  top: 0%;
+  bottom: 22.22%;
+  background: #0091A0;
+}
+
+.glyph5 {
+  left: 57.54%;
+  right: 32.7%;
+  top: 18.89%;
+  bottom: 22.22%;
+  background: #0091A0;
+}
+
+.glyph6 {
+  left: 68.44%;
+  right: 16.37%;
+  top: 18.89%;
+  bottom: 22.33%;
+  background: #0091A0;
+}
+
+.glyph7 {
+  left: 84.78%;
+  right: 0%;
+  top: 18.89%;
+  bottom: 0%;
+  background: #0091A0;
+}
+
+.cta {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  gap: 8px;
+  min-width: 147.53px;
+  height: 36px;
+  background: #00B8D4;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 184, 212, 0.25);
+}
+
+.cta:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    gap: 1rem;
+  }
+
+  .logoGlyph {
+    width: 88px;
+  }
+}

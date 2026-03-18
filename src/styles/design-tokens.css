@@ -1,0 +1,77 @@
+/* Design Tokens - DrsPrep */
+
+:root {
+  /* Font Families */
+  --font-family-poppins: 'Poppins', sans-serif;
+
+  /* Colors */
+  --color-primary: #00B8D4;
+  --color-primary-dark: #00A3BE;
+  --color-secondary: #00B8A9;
+  --color-secondary-dark: #008F84;
+  --color-background-light: #F0F9FF;
+  --color-dark: #0D1B2A;
+  --color-text-primary: #1A1A2E;
+  --color-text-secondary: #64748B;
+  --color-text-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* Typography Scale */
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 36px;
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  /* Line Heights */
+  --line-height-tight: 100%;
+  --line-height-normal: 20px;
+  --line-height-relaxed: 28px;
+  --line-height-loose: 36px;
+
+  /* Letter Spacing */
+  --letter-spacing-none: 0px;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 999px;
+
+  /* Shadows */
+  --shadow-sm: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* Component Specific */
+  --checkbox-bg: #F0F9FF;
+  --checkbox-border: #00B8D4;
+  --checkbox-size: 16px;
+  --input-height: 48px;
+  --button-height: 48px;
+}

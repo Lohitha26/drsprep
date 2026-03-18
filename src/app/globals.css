@@ -1,13 +1,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "../styles/design-tokens.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-sans), "Poppins", sans-serif;
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -124,6 +125,189 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply font-sans;
+    @apply font-sans scroll-smooth;
+  }
+}
+
+:root {
+  --drsprep-primary: #00B8A9;
+  --drsprep-primary-dark: #008F84;
+  --drsprep-hero-btn: #00B8D4;
+  --drsprep-bg: #F0F9FF;
+  --drsprep-dark: #0D1B2A;
+  --drsprep-text: #1A1A2E;
+  --drsprep-text-secondary: #6B7280;
+}
+
+.typography-drsprep-brand {
+  font-family: var(--font-family-poppins);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-3xl);
+  line-height: var(--line-height-loose);
+  letter-spacing: var(--letter-spacing-tight);
+  color: var(--color-primary);
+}
+
+.typography-drsprep-cta {
+  font-family: var(--font-family-poppins);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-normal);
+  color: var(--color-white);
+}
+
+.drsprep-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 16px 0;
+  background: #ffffff;
+}
+
+.drsprep-header__inner {
+  width: 100%;
+  max-width: 1200px;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 12vw, 243.56px);
+  padding: 0 1rem;
+}
+
+.drsprep-header__logo-area {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.drsprep-header__accent {
+  width: 6px;
+  height: 40px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #02AFD2 0%, #0091A0 100%);
+}
+
+.drsprep-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+}
+
+.drsprep-logo__glyph {
+  position: relative;
+  width: 116px;
+  height: 30px;
+}
+
+.drsprep-logo__glyph span {
+  position: absolute;
+  border-radius: 4px;
+}
+
+.drsprep-logo__glyph .glyph-1 {
+  left: 0%;
+  right: 84.79%;
+  top: 0%;
+  bottom: 22.22%;
+  background: #02AFD2;
+}
+
+.drsprep-logo__glyph .glyph-2 {
+  left: 16.37%;
+  right: 73.87%;
+  top: 18.89%;
+  bottom: 22.22%;
+  background: #02AFD2;
+}
+
+.drsprep-logo__glyph .glyph-3 {
+  left: 27.3%;
+  right: 59.35%;
+  top: 18.89%;
+  bottom: 22.45%;
+  background: #02AFD2;
+}
+
+.drsprep-logo__glyph .glyph-4 {
+  left: 41.83%;
+  right: 43.04%;
+  top: 0%;
+  bottom: 22.22%;
+  background: #0091A0;
+}
+
+.drsprep-logo__glyph .glyph-5 {
+  left: 57.54%;
+  right: 32.7%;
+  top: 18.89%;
+  bottom: 22.22%;
+  background: #0091A0;
+}
+
+.drsprep-logo__glyph .glyph-6 {
+  left: 68.44%;
+  right: 16.37%;
+  top: 18.89%;
+  bottom: 22.33%;
+  background: #0091A0;
+}
+
+.drsprep-logo__glyph .glyph-7 {
+  left: 84.78%;
+  right: 0%;
+  top: 18.89%;
+  bottom: 0%;
+  background: #0091A0;
+}
+
+.drsprep-header__cta {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 24px;
+  gap: 8px;
+  width: auto;
+  min-width: 147.53px;
+  height: 36px;
+  background: #00B8D4;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.drsprep-header__cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 184, 212, 0.25);
+}
+
+.drsprep-header__cta:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .drsprep-header__inner {
+    gap: 1rem;
+  }
+
+  .drsprep-logo__glyph {
+    width: 88px;
+  }
+
+  .typography-drsprep-brand {
+    font-size: 20px;
+  }
+
+  .drsprep-header__cta {
+    min-width: auto;
+    padding: 6px 18px;
   }
 }
