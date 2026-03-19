@@ -18,28 +18,28 @@ const featureRows = [
     title: "Advanced Mock Tests",
     desc: "Experience real exam simulation with comprehensive analysis.",
     bullets: ["Real exam simulation", "AI performance analysis", "Detailed solutions"],
-    imageLeft: false,
+    imageLeft: true,
   },
   {
     icon: BookOpen,
     title: "Smart Question Bank",
     desc: "Master concepts with intelligent practice questions.",
     bullets: ["Topic-wise practice", "Explanation based learning", "Performance tracking"],
-    imageLeft: true,
+    imageLeft: false,
   },
   {
     icon: Image,
     title: "Clinical Image Based Questions",
     desc: "Practice visual diagnosis with clinical cases.",
     bullets: ["Real clinical case questions", "Diagnosis practice", "Exam style learning"],
-    imageLeft: false,
+    imageLeft: true,
   },
   {
     icon: Zap,
     title: "Rapid Revision Notes",
     desc: "Quick revision with high-yield content summaries.",
     bullets: ["High-yield summaries", "Quick concept refresh", "Perfect for last revision"],
-    imageLeft: true,
+    imageLeft: false,
   },
 ];
 
@@ -157,14 +157,15 @@ export default function ResourcesSection() {
         {/* Alternating Feature Rows */}
         <div className="flex flex-col gap-24">
           {featureRows.map((row, i) => {
-            const variant = row.imageLeft ? fadeInLeft : fadeInRight;
-            const textVariant = row.imageLeft ? fadeInRight : fadeInLeft;
+            const isTextFirst = i % 2 === 0;
+            const variant = isTextFirst ? fadeInRight : fadeInLeft;
+            const textVariant = isTextFirst ? fadeInLeft : fadeInRight;
 
             return (
               <div
                 key={row.title}
                 className={`flex flex-col ${
-                  row.imageLeft ? "lg:flex-row" : "lg:flex-row-reverse"
+                  isTextFirst ? "lg:flex-row-reverse" : "lg:flex-row"
                 } items-center gap-12`}
               >
                 <FeatureRowImage variant={variant} index={i} />

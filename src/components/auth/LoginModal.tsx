@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { useAuthStore } from "@/lib/store";
 import PhoneStep from "./PhoneStep";
 import OTPStep from "./OTPStep";
@@ -41,7 +41,10 @@ export default function LoginModal() {
 
   return (
     <Dialog open={isLoginOpen} onOpenChange={handleOpenChange}>
-      <DialogContent className="sm:max-w-md p-6 rounded-2xl">
+      <DialogContent className="sm:max-w-md p-6 rounded-2xl" style={{fontFamily: 'var(--font-family-poppins)'}}>
+        <DialogTitle className="sr-only">
+          {step === "phone" ? "Login with Phone Number" : "Enter OTP Code"}
+        </DialogTitle>
         {step === "phone" && <PhoneStep onSuccess={handlePhoneSuccess} />}
         {step === "otp" && confirmation && (
           <OTPStep
