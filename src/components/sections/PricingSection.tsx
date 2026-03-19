@@ -10,14 +10,14 @@ import { Check } from "lucide-react";
 const plans = [
   {
     name: "Basic Plan",
-    price: "₹2,999",
+    price: "Rs.2,999",
     period: "/3 months",
     features: ["QBank access", "Basic video lectures", "Practice tests", "Email support"],
     popular: false,
   },
   {
     name: "Standard Plan",
-    price: "₹7,999",
+    price: "Rs.7,999",
     period: "/6 months",
     features: [
       "Full video lectures",
@@ -30,7 +30,7 @@ const plans = [
   },
   {
     name: "Premium Plan",
-    price: "₹14,999",
+    price: "Rs.14,999",
     period: "/1 year",
     features: [
       "Everything in Standard",

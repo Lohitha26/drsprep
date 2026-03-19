@@ -17,8 +17,8 @@ export default function CTASection() {
       className="py-20 bg-gradient-to-r from-[#00B8A9] to-[#008F84] relative overflow-hidden"
     >
       {/* Decorative background elements */}
-      <div className="absolute top-10 left-10 text-white/10 text-8xl">✚</div>
-      <div className="absolute bottom-10 right-20 text-white/10 text-6xl">🩺</div>
+      <div className="absolute top-10 left-10 text-white/10 text-8xl">+</div>
+      <div className="absolute bottom-10 right-20 text-white/10 text-6xl">+</div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-12">
@@ -64,7 +64,7 @@ export default function CTASection() {
             <motion.div animate={floatAnimation}>
               <div className="w-72 h-72 rounded-full bg-white/10 flex items-center justify-center">
                 <div className="w-56 h-56 rounded-full bg-white/15 flex items-center justify-center">
-                  <div className="text-7xl">👨‍⚕️</div>
+                  <div className="text-7xl">+</div>
                 </div>
               </div>
             </motion.div>

@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { getAuth, RecaptchaVerifier, signInWithPhoneNumber } from "@/lib/firebase";
+import { validatePhoneNumber, formatPhoneNumberInput, getInternationalFormat, PHONE_ERRORS } from "@/lib/phone-validation";
 import type { ConfirmationResult } from "firebase/auth";
 
 interface PhoneStepProps {
@@ -19,9 +21,10 @@ export default function PhoneStep({ onSuccess }: PhoneStepProps) {
 
   const handleSendOTP = useCallback(async () => {
     setError("");
-    const cleaned = phone.replace(/\s/g, "");
-    if (!/^\d{10}$/.test(cleaned)) {
-      setError("Please enter a valid 10-digit mobile number");
+    
+    const validation = validatePhoneNumber(phone);
+    if (!validation.isValid) {
+      setError(validation.error || "Please enter a valid mobile number");
       return;
     }
 
@@ -36,8 +39,14 @@ export default function PhoneStep({ onSuccess }: PhoneStepProps) {
         );
       }
       const verifier = (window as unknown as Record<string, unknown>).recaptchaVerifier as InstanceType<typeof RecaptchaVerifier>;
-      const confirmation = await signInWithPhoneNumber(firebaseAuth, `+91${cleaned}`, verifier);
-      onSuccess(confirmation, cleaned);
+      try {
+        const internationalFormat = getInternationalFormat(phone);
+        const confirmation = await signInWithPhoneNumber(firebaseAuth, internationalFormat, verifier);
+        onSuccess(confirmation, validation.cleanedPhone);
+      } catch (formatError) {
+              setError(formatError instanceof Error ? formatError.message : PHONE_ERRORS.INVALID_FORMAT);
+        return;
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to send OTP. Please try again.");
     } finally {
@@ -58,14 +67,14 @@ export default function PhoneStep({ onSuccess }: PhoneStepProps) {
         </label>
         <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-[#00B8A9]">
           <div className="flex items-center gap-1.5 px-3 bg-gray-50 border-r border-gray-300 py-2.5">
-            <span className="text-lg">🇮🇳</span>
+            <span className="text-lg">IN</span>
             <span className="text-sm font-medium text-[#1A1A2E]">+91</span>
           </div>
           <Input
             type="tel"
             placeholder="Enter mobile number"
             value={phone}
-            onChange={(e) => setPhone(e.target.value.replace(/\D/g, "").slice(0, 10))}
+            onChange={(e) => setPhone(formatPhoneNumberInput(e.target.value))}
             className="border-0 focus-visible:ring-0 shadow-none"
             maxLength={10}
           />
@@ -96,9 +105,9 @@ export default function PhoneStep({ onSuccess }: PhoneStepProps) {
 
       <p className="text-xs text-center text-[#6B7280]">
         By continuing, you agree to our{" "}
-        <span className="text-[#00B8A9] underline cursor-pointer">Terms of Service</span>{" "}
+        <Link href="/privacy" className="text-[#00B8A9] underline cursor-pointer">Privacy Policy</Link>{" "}
         and{" "}
-        <span className="text-[#00B8A9] underline cursor-pointer">Privacy Policy</span>
+        <span className="text-[#00B8A9] underline cursor-pointer">Terms of Service</span>
       </p>
 
       <div id="recaptcha-container" />
