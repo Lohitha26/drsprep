@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeInUp } from "@/lib/animations";
 import { ArrowRight } from "lucide-react";
@@ -10,6 +10,14 @@ export default function SmartPreparationCTA() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { openLogin } = useAuthStore();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 425);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   return (
     <section
@@ -66,7 +74,7 @@ export default function SmartPreparationCTA() {
           className="relative overflow-hidden"
           style={{
             maxWidth: 'clamp(900px, 76.61vw, 1471px)',
-            height: 'clamp(180px, 12.5vw, 240px)',
+            height: isMobile ? 'auto' : 'clamp(180px, 12.5vw, 240px)',
             margin: '0 auto',
             borderRadius: 'clamp(16px, 1.25vw, 24px)',
             background: '#00B8D4',
@@ -74,7 +82,7 @@ export default function SmartPreparationCTA() {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            padding: 'clamp(24px, 2.5vw, 48px)',
+            padding: isMobile ? '32px 20px' : 'clamp(24px, 2.5vw, 48px)',
             position: 'relative'
           }}
         >
@@ -128,8 +136,8 @@ export default function SmartPreparationCTA() {
               style={{
                 fontFamily: 'Poppins',
                 fontWeight: 700,
-                fontSize: 'clamp(24px, 1.875vw, 36px)',
-                lineHeight: 'clamp(28px, 2.083vw, 40px)',
+                fontSize: isMobile ? '22px' : 'clamp(24px, 1.875vw, 36px)',
+                lineHeight: isMobile ? '28px' : 'clamp(28px, 2.083vw, 40px)',
                 letterSpacing: '0px',
                 textAlign: 'center',
                 color: '#FFFFFF',
@@ -144,12 +152,12 @@ export default function SmartPreparationCTA() {
               style={{
                 fontFamily: 'Poppins',
                 fontWeight: 400,
-                fontSize: 'clamp(14px, 0.9375vw, 18px)',
-                lineHeight: 'clamp(22px, 1.458vw, 28px)',
+                fontSize: isMobile ? '13px' : 'clamp(14px, 0.9375vw, 18px)',
+                lineHeight: isMobile ? '18px' : 'clamp(22px, 1.458vw, 28px)',
                 letterSpacing: '0px',
                 textAlign: 'center',
                 color: '#FFFFFF',
-                marginBottom: 'clamp(20px, 2.083vw, 40px)'
+                marginBottom: isMobile ? '20px' : 'clamp(20px, 2.083vw, 40px)'
               }}
             >
               Join DrsPrep and experience a better way to learn, practice, and succeed.

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight } from "@/lib/animations";
 import { ClipboardCheck, Lightbulb, Image as ImageIcon, FileText, Check } from "lucide-react";
@@ -55,6 +55,14 @@ const features = [
 export default function FeaturesShowcase() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 1024);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   return (
     <section id="features-showcase" ref={ref} className="py-20 bg-white">
@@ -68,7 +76,7 @@ export default function FeaturesShowcase() {
             custom={index}
             className="flex flex-col lg:flex-row items-center gap-12 mb-20"
             style={{
-              flexDirection: feature.imagePosition === "right" ? "row-reverse" : "row"
+              flexDirection: isMobile ? 'column' : (feature.imagePosition === "right" ? "row-reverse" : "row")
             }}
           >
             {/* Image Container */}
@@ -79,8 +87,8 @@ export default function FeaturesShowcase() {
               className="flex-1"
               style={{
                 width: '100%',
-                maxWidth: 'clamp(400px, 36.21vw, 695.13px)',
-                height: 'clamp(300px, 24.97vw, 479.4px)',
+                maxWidth: isMobile ? '100%' : 'clamp(400px, 36.21vw, 695.13px)',
+                height: isMobile ? '250px' : 'clamp(300px, 24.97vw, 479.4px)',
                 background: 'linear-gradient(135deg, #E0F7FA 0%, #E2F7FB 14.29%, #E5F8FB 28.57%, #E7F8FC 42.86%, #E9F8FD 57.14%, #EBF8FE 71.43%, #EEF9FE 85.71%, #F0F9FF 100%)',
                 borderRadius: 'clamp(14px, 1.052vw, 20.19px)',
                 padding: 'clamp(24px, 2.103vw, 40.37px)',
@@ -120,8 +128,8 @@ export default function FeaturesShowcase() {
               className="flex-1"
               style={{
                 width: '100%',
-                maxWidth: 'clamp(400px, 36.21vw, 695.13px)',
-                minHeight: 'clamp(300px, 21.72vw, 416.95px)'
+                maxWidth: isMobile ? '100%' : 'clamp(400px, 36.21vw, 695.13px)',
+                minHeight: isMobile ? 'unset' : 'clamp(300px, 21.72vw, 416.95px)'
               }}
             >
               {/* Icon */}

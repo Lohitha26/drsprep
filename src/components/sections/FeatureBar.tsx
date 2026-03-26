@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeInUp } from "@/lib/animations";
 import { Video, ClipboardCheck, PlayCircle, PenTool } from "lucide-react";
@@ -15,6 +15,14 @@ const features = [
 export default function FeatureBar() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 640);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   return (
     <section
@@ -52,7 +60,7 @@ export default function FeatureBar() {
             style={{
               flex: 1,
               padding: 'clamp(16px, 1.25vw, 24px) clamp(20px, 1.667vw, 32px)',
-              borderRight: index < features.length - 1 ? '1px solid #D4D4D4' : 'none',
+              borderRight: !isMobile && index < features.length - 1 ? '1px solid #D4D4D4' : 'none',
               justifyContent: 'center'
             }}
           >
