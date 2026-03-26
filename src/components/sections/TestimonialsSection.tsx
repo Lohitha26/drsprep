@@ -1,228 +1,148 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/lib/animations";
-import { Star } from "lucide-react";
 
-const testimonials = [
+const mentors = [
   {
-    name: "Dr. Priya Sharma",
-    rank: "AIR 47, NEET PG 2025",
-    quote: "DRSPREP was instrumental in my success. The comprehensive study material and expert guidance helped me secure my dream rank.",
-    rating: 5,
+    name: "Dr. Anjali Menon",
   },
   {
-    name: "Dr. Rahul Verma", 
-    rank: "AIR 89, NEXT 2025",
-    quote: "The structured approach and performance analytics gave me the confidence to excel. Mock tests were incredibly realistic.",
-    rating: 5,
+    name: "Dr. Sameer Khanna",
   },
   {
-    name: "Dr. Ananya Patel",
-    rank: "AIR 156, FMGE 2026", 
-    quote: "Mock tests were incredibly realistic and helped me identify my weak areas. The personalized feedback was invaluable.",
-    rating: 5,
+    name: "Dr. Priya Sethi",
   },
 ];
 
 export default function TestimonialsSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 8000); // Increased from 5000ms to 8000ms
-    return () => clearInterval(interval);
-  }, []);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section 
       ref={ref} 
       className="py-20"
-      style={{background: 'linear-gradient(135deg, #F8FAFC 0%, #FAFCFD 33.33%, #FDFDFE 66.67%, #FFFFFF 100%)'}}
+      style={{ background: '#FFFFFF' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center mb-14"
+          className="text-center mb-16"
+          style={{
+            maxWidth: 'clamp(600px, 55.47vw, 1065px)',
+            margin: '0 auto clamp(40px, 4.167vw, 80px) auto'
+          }}
         >
-          <h2 
-            className="mb-3"
+          <h2
             style={{
-              fontFamily: 'var(--font-family-poppins)',
-              fontWeight: 'var(--font-weight-bold)',
-              fontSize: '36px',
-              lineHeight: '40px',
+              fontFamily: 'Poppins',
+              fontWeight: 700,
+              fontSize: 'clamp(28px, 1.875vw, 36px)',
+              lineHeight: 'clamp(32px, 2.083vw, 40px)',
+              letterSpacing: '0px',
               textAlign: 'center',
-              color: 'var(--color-text-primary)'
+              color: '#0F172A',
+              marginBottom: 'clamp(12px, 0.833vw, 16px)'
             }}
           >
-            Voices of Success — DRSPREP Toppers Speak
+            Beyond Learning  Master Exam Writing
           </h2>
-          <p 
+          <p
             style={{
-              fontFamily: 'var(--font-family-poppins)',
-              fontWeight: 'var(--font-weight-normal)',
-              fontSize: '18px',
-              lineHeight: '28px',
+              fontFamily: 'Poppins',
+              fontWeight: 400,
+              fontSize: 'clamp(14px, 0.9375vw, 18px)',
+              lineHeight: 'clamp(22px, 1.458vw, 28px)',
+              letterSpacing: '0px',
               textAlign: 'center',
-              color: 'var(--color-text-secondary)'
+              color: '#64748B'
             }}
           >
-            Hear how students achieved their dream ranks with DRSPREP
+            Structured mentorship from mastering concepts to acing exams, all personalized to your learning style
           </p>
         </motion.div>
 
+        {/* Mentor Cards */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="relative flex justify-center items-center"
-          style={{width: '1024px', height: '345px', margin: '0 auto'}}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          style={{
+            maxWidth: 'clamp(900px, 76.67vw, 1472px)',
+            margin: '0 auto'
+          }}
         >
-          {/* Only show current testimonial */}
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className={`absolute transition-all duration-1000 ${index === currentIndex ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
+          {mentors.map((mentor, index) => (
+            <motion.div
+              key={mentor.name}
+              variants={fadeInUp}
+              custom={index}
+              className="flex flex-col items-center"
               style={{
-                width: '992px',
-                height: '345px',
-                background: 'linear-gradient(135deg, rgb(224, 247, 250) 0%, rgb(227, 248, 250) 9.09%, rgb(230, 248, 251) 18.18%, rgb(233, 249, 251) 27.27%, rgb(235, 250, 252) 36.36%, rgb(238, 251, 252) 45.45%, rgb(241, 251, 253) 54.55%, rgb(244, 252, 253) 63.64%, rgb(247, 253, 254) 72.73%, rgb(249, 254, 254) 81.82%, rgb(252, 254, 255) 90.91%, rgb(255, 255, 255) 100%)',
-                boxShadow: 'rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px',
-                borderRadius: '24px',
-                border: '2px solid',
-                borderImage: 'linear-gradient(rgb(0, 173, 197) 0%, rgb(255, 255, 255) 100%) 1',
-                display: index === currentIndex ? 'block' : 'none',
-                position: 'absolute',
-                left: '50%',
-                top: '50%',
-                transform: `translate(-50%, -50%) ${index === currentIndex ? 'scale(1)' : 'scale(0.95)'}`
+                background: '#FFFFFF',
+                border: '1px solid #CACACA',
+                borderRadius: 'clamp(16px, 1.152vw, 22.11px)',
+                padding: 'clamp(32px, 2.5vw, 48px) clamp(16px, 1.25vw, 24px)',
+                height: 'clamp(300px, 18.536vw, 355.91px)'
               }}
             >
-                  {/* Quote Icon */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      width: '48px',
-                      height: '48px',
-                      left: '48px',
-                      top: '48px'
-                    }}
-                  >
-                    <div style={{position: 'relative', width: '100%', height: '100%'}}>
-                      <div 
-                        style={{
-                          position: 'absolute',
-                          left: '58.33%',
-                          right: '12.5%',
-                          top: '12.5%',
-                          bottom: '12.5%',
-                          border: '4px solid #00B8D4'
-                        }}
-                      />
-                      <div 
-                        style={{
-                          position: 'absolute',
-                          left: '12.5%',
-                          right: '58.33%',
-                          top: '12.5%',
-                          bottom: '12.5%',
-                          border: '4px solid #00B8D4'
-                        }}
-                      />
-                    </div>
-                  </div>
+              {/* Avatar Circle */}
+              <div
+                style={{
+                  width: 'clamp(100px, 6.91vw, 132.69px)',
+                  height: 'clamp(100px, 6.91vw, 132.69px)',
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #E0F7FA 0%, #DCF6F9 10%, #D7F5F8 20%, #D3F3F8 30%, #CEF2F7 40%, #C9F1F6 50%, #C5F0F5 60%, #C0EFF4 70%, #BCEDF4 80%, #B7ECF3 90%, #B2EBF2 100%)',
+                  marginBottom: 'clamp(16px, 1.25vw, 24px)'
+                }}
+              />
 
-                  {/* Quote Text */}
-                  <p
-                    style={{
-                      position: 'absolute',
-                      width: '896px',
-                      height: '65px',
-                      left: '48px',
-                      top: '120px',
-                      fontFamily: 'var(--font-family-poppins)',
-                      fontStyle: 'italic',
-                      fontWeight: 'var(--font-weight-normal)',
-                      fontSize: '20px',
-                      lineHeight: '32px',
-                      color: 'var(--color-text-primary)'
-                    }}
-                  >
-                    "{testimonial.quote}"
-                  </p>
+              {/* Expert Mentor Tag */}
+              <div
+                style={{
+                  background: '#E0F7FA',
+                  padding: 'clamp(6px, 0.5vw, 8px) clamp(12px, 1vw, 16px)',
+                  borderRadius: 'clamp(6px, 0.5vw, 8px)',
+                  marginBottom: 'clamp(12px, 1vw, 16px)'
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'Poppins',
+                    fontWeight: 600,
+                    fontSize: 'clamp(12px, 0.864vw, 16.59px)',
+                    lineHeight: 'clamp(16px, 1.152vw, 22.11px)',
+                    letterSpacing: '0px',
+                    textAlign: 'center',
+                    color: '#00B8D4'
+                  }}
+                >
+                  EXPERT MENTOR
+                </span>
+              </div>
 
-                  {/* Author Info */}
-                  <div
-                    className="flex items-center gap-6"
-                    style={{
-                      position: 'absolute',
-                      width: '896px',
-                      height: '80px',
-                      left: '48px',
-                      top: '217px'
-                    }}
-                  >
-                    {/* Avatar */}
-                    <div
-                      style={{
-                        width: '80px',
-                        height: '80px',
-                        border: '4px solid #00B8D4',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        backgroundColor: '#F3F4F6'
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontFamily: 'var(--font-family-poppins)',
-                          fontWeight: 'var(--font-weight-bold)',
-                          fontSize: '24px',
-                          color: '#00B8D4'
-                        }}
-                      >
-                        {testimonial.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
-
-                    {/* Name and Rank */}
-                    <div>
-                      <h3
-                        style={{
-                          fontFamily: 'var(--font-family-poppins)',
-                          fontWeight: 'var(--font-weight-bold)',
-                          fontSize: '20px',
-                          lineHeight: '28px',
-                          color: 'var(--color-text-primary)',
-                          marginBottom: '4px'
-                        }}
-                      >
-                        {testimonial.name}
-                      </h3>
-                      <p
-                        style={{
-                          fontFamily: 'var(--font-family-poppins)',
-                          fontWeight: 'var(--font-weight-semibold)',
-                          fontSize: '16px',
-                          lineHeight: '24px',
-                          color: '#00B8D4'
-                        }}
-                      >
-                        {testimonial.rank}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              {/* Mentor Name */}
+              <h3
+                style={{
+                  fontFamily: 'Poppins',
+                  fontWeight: 700,
+                  fontSize: 'clamp(20px, 1.44vw, 27.64px)',
+                  lineHeight: 'clamp(28px, 2.016vw, 38.7px)',
+                  letterSpacing: '0px',
+                  textAlign: 'center',
+                  color: '#0F172A'
+                }}
+              >
+                {mentor.name}
+              </h3>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

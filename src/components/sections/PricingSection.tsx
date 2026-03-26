@@ -108,8 +108,8 @@ export default function PricingSection() {
                 onClick={openLogin}
                 className={`w-full h-11 font-semibold rounded-lg transition-transform hover:scale-105 ${
                   plan.popular
-                    ? "bg-[#00B8A9] hover:bg-[#008F84] text-white"
-                    : "bg-white border border-gray-300 text-[#1A1A2E] hover:bg-gray-50"
+                    ? "bg-[#00B8A9] hover:bg-[#008F84] text-white btn-3d-primary"
+                    : "bg-white border border-gray-300 text-[#1A1A2E] hover:bg-gray-50 btn-3d-outline"
                 }`}
               >
                 Get Started

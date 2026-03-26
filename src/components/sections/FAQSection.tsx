@@ -34,43 +34,110 @@ export default function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" ref={ref} className="py-20 bg-white">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section 
+      id="faq" 
+      ref={ref} 
+      className="py-20"
+      style={{ background: '#FFFFFF' }}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
         <motion.div
           variants={fadeInUp}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-center mb-14"
+          className="text-center"
+          style={{
+            maxWidth: 'clamp(800px, 79.24vw, 1521.35px)',
+            margin: '0 auto clamp(60px, 6.25vw, 120px) auto'
+          }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1A1A2E] mb-3">
+          <h2
+            style={{
+              fontFamily: 'Poppins',
+              fontWeight: 700,
+              fontSize: 'clamp(32px, 2.447vw, 46.97px)',
+              lineHeight: 'clamp(38px, 2.718vw, 52.19px)',
+              letterSpacing: '0px',
+              textAlign: 'center',
+              color: '#0F172A',
+              marginBottom: 'clamp(12px, 0.833vw, 16px)'
+            }}
+          >
             Frequently Asked Questions
           </h2>
-          <p className="text-[#6B7280]">
+          <p
+            style={{
+              fontFamily: 'Poppins',
+              fontWeight: 400,
+              fontSize: 'clamp(16px, 1.223vw, 23.49px)',
+              lineHeight: 'clamp(24px, 1.903vw, 36.53px)',
+              letterSpacing: '0px',
+              textAlign: 'center',
+              color: '#64748B'
+            }}
+          >
             Find answers to common questions about DRSPREP
           </p>
         </motion.div>
 
+        {/* FAQ Items */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="flex flex-col gap-3"
+          className="flex flex-col"
+          style={{
+            maxWidth: 'clamp(700px, 52.19vw, 1002.06px)',
+            margin: '0 auto',
+            gap: 'clamp(16px, 1.088vw, 20.88px)'
+          }}
         >
           {faqs.map((faq, i) => (
             <motion.div
               key={i}
               variants={fadeInUp}
-              className="border border-gray-200 rounded-xl overflow-hidden"
+              custom={i}
+              style={{
+                width: '100%',
+                minHeight: 'clamp(56px, 3.534vw, 67.85px)',
+                borderRadius: 'clamp(14px, 1.088vw, 20.88px)',
+                background: '#E9F8FD',
+                overflow: 'hidden',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)'
+              }}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-5 text-left hover:bg-gray-50 transition-colors"
+                className="w-full flex items-center justify-between text-left transition-colors"
+                style={{
+                  padding: 'clamp(16px, 1.631vw, 31.31px)',
+                  minHeight: 'clamp(56px, 3.534vw, 67.85px)'
+                }}
               >
-                <span className="font-medium text-[#1A1A2E] pr-4">{faq.q}</span>
+                <span
+                  style={{
+                    fontFamily: 'Poppins',
+                    fontWeight: 600,
+                    fontSize: 'clamp(14px, 0.952vw, 18.27px)',
+                    lineHeight: 'clamp(20px, 1.359vw, 26.1px)',
+                    letterSpacing: '0px',
+                    color: '#0F172A',
+                    paddingRight: 'clamp(12px, 1.042vw, 20px)'
+                  }}
+                >
+                  {faq.q}
+                </span>
                 <ChevronDown
-                  className={`w-5 h-5 text-[#6B7280] shrink-0 transition-transform duration-300 ${
-                    openIndex === i ? "rotate-180" : ""
-                  }`}
+                  style={{
+                    width: 'clamp(16px, 1.042vw, 20px)',
+                    height: 'clamp(16px, 1.042vw, 20px)',
+                    color: '#64748B',
+                    strokeWidth: 'clamp(1.5px, 0.091vw, 1.74px)',
+                    flexShrink: 0,
+                    transition: 'transform 0.3s ease',
+                    transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0deg)'
+                  }}
                 />
               </button>
               <AnimatePresence>
@@ -82,7 +149,17 @@ export default function FAQSection() {
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                     className="overflow-hidden"
                   >
-                    <p className="px-5 pb-5 text-sm text-[#6B7280] leading-relaxed">
+                    <p
+                      style={{
+                        fontFamily: 'Poppins',
+                        fontWeight: 400,
+                        fontSize: 'clamp(14px, 0.833vw, 16px)',
+                        lineHeight: 'clamp(22px, 1.458vw, 28px)',
+                        letterSpacing: '0px',
+                        color: '#64748B',
+                        padding: '0 clamp(16px, 1.631vw, 31.31px) clamp(16px, 1.631vw, 31.31px) clamp(16px, 1.631vw, 31.31px)'
+                      }}
+                    >
                       {faq.a}
                     </p>
                   </motion.div>

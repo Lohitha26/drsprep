@@ -9,6 +9,15 @@ export const fadeInUp: Variants = {
   },
 };
 
+export const fadeInDown: Variants = {
+  hidden: { y: -40, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 export const fadeInLeft: Variants = {
   hidden: { x: -60, opacity: 0 },
   visible: {

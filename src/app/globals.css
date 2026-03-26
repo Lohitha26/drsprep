@@ -311,3 +311,81 @@
     padding: 6px 18px;
   }
 }
+
+/* 3D Button Effects */
+.btn-3d-primary {
+  box-shadow: 0 4px 6px rgba(0, 184, 212, 0.25), 0 2px 3px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+.btn-3d-primary:hover {
+  box-shadow: 0 7px 14px rgba(0, 184, 212, 0.3), 0 3px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-2px) !important;
+}
+.btn-3d-primary:active {
+  box-shadow: 0 2px 4px rgba(0, 184, 212, 0.2), 0 1px 2px rgba(0, 0, 0, 0.06), inset 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(1px) !important;
+}
+
+.btn-3d-outline {
+  box-shadow: 0 3px 6px rgba(0, 184, 212, 0.15), 0 2px 4px rgba(0, 0, 0, 0.06);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+.btn-3d-outline:hover {
+  box-shadow: 0 6px 12px rgba(0, 184, 212, 0.2), 0 3px 6px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(-2px) !important;
+}
+.btn-3d-outline:active {
+  box-shadow: 0 1px 3px rgba(0, 184, 212, 0.12), 0 1px 2px rgba(0, 0, 0, 0.04), inset 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+  transform: translateY(1px) !important;
+}
+
+.btn-3d-white {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+.btn-3d-white:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  transform: translateY(-2px) !important;
+}
+.btn-3d-white:active {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.04), inset 0 2px 4px rgba(0, 0, 0, 0.06) !important;
+  transform: translateY(1px) !important;
+}
+
+.btn-3d-ghost {
+  box-shadow: 0 3px 6px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+.btn-3d-ghost:hover {
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(-2px) !important;
+}
+.btn-3d-ghost:active {
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.08), inset 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  transform: translateY(1px) !important;
+}
+
+/* Resource Card Hover Gradient Border */
+.resource-card-hover {
+  position: relative;
+  border: 1.5px solid transparent;
+  transition: all 0.3s ease;
+}
+.resource-card-hover:hover {
+  border-color: transparent;
+  background: linear-gradient(#F1FCFF, #F1FCFF) padding-box,
+              linear-gradient(180deg, #00B8D4 0%, #FFFFFF 100%) border-box !important;
+}
+
+.btn-3d-small {
+  box-shadow: 0 3px 5px rgba(0, 184, 212, 0.2), 0 1px 3px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+.btn-3d-small:hover {
+  box-shadow: 0 5px 10px rgba(0, 184, 212, 0.25), 0 2px 4px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+  transform: translateY(-1px) !important;
+}
+.btn-3d-small:active {
+  box-shadow: 0 1px 3px rgba(0, 184, 212, 0.15), inset 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(1px) !important;
+}
