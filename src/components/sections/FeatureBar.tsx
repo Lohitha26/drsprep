@@ -59,9 +59,10 @@ export default function FeatureBar() {
             className="flex items-center gap-4"
             style={{
               flex: 1,
-              padding: 'clamp(16px, 1.25vw, 24px) clamp(20px, 1.667vw, 32px)',
+              padding: isMobile ? '12px 32px' : 'clamp(16px, 1.25vw, 24px) clamp(20px, 1.667vw, 32px)',
               borderRight: !isMobile && index < features.length - 1 ? '1px solid #D4D4D4' : 'none',
-              justifyContent: 'center'
+              justifyContent: isMobile ? 'flex-start' : 'center',
+              width: isMobile ? '100%' : 'auto'
             }}
           >
             {/* Icon */}
