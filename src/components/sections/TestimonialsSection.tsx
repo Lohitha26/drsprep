@@ -83,10 +83,9 @@ export default function TestimonialsSection() {
               key={mentor.name}
               variants={fadeInUp}
               custom={index}
-              className="flex flex-col items-center"
+              className="flex flex-col items-center mentor-card-hover"
               style={{
                 background: '#FFFFFF',
-                border: '1px solid #CACACA',
                 borderRadius: 'clamp(16px, 1.152vw, 22.11px)',
                 padding: 'clamp(32px, 2.5vw, 48px) clamp(16px, 1.25vw, 24px)',
                 height: 'clamp(300px, 18.536vw, 355.91px)'

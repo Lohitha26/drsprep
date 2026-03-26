@@ -102,7 +102,10 @@ export default function FAQSection() {
                 width: '100%',
                 minHeight: 'clamp(56px, 3.534vw, 67.85px)',
                 borderRadius: 'clamp(14px, 1.088vw, 20.88px)',
-                background: '#E9F8FD',
+                background: openIndex === i
+                  ? 'linear-gradient(180deg, #E9F8FD 0%, #FFFFFF 100%)'
+                  : 'linear-gradient(180deg, #E9F8FD 0%, #FFFFFF 100%)',
+                border: '1px solid #88D8E4',
                 overflow: 'hidden',
                 boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)'
               }}
@@ -136,7 +139,7 @@ export default function FAQSection() {
                     strokeWidth: 'clamp(1.5px, 0.091vw, 1.74px)',
                     flexShrink: 0,
                     transition: 'transform 0.3s ease',
-                    transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0deg)'
+                    transform: openIndex === i ? 'rotate(-90deg)' : 'rotate(0deg)'
                   }}
                 />
               </button>
@@ -153,10 +156,10 @@ export default function FAQSection() {
                       style={{
                         fontFamily: 'Poppins',
                         fontWeight: 400,
-                        fontSize: 'clamp(14px, 0.833vw, 16px)',
-                        lineHeight: 'clamp(22px, 1.458vw, 28px)',
+                        fontSize: 'clamp(14px, 0.952vw, 18.27px)',
+                        lineHeight: 'clamp(20px, 1.359vw, 26.1px)',
                         letterSpacing: '0px',
-                        color: '#64748B',
+                        color: '#0F172A',
                         padding: '0 clamp(16px, 1.631vw, 31.31px) clamp(16px, 1.631vw, 31.31px) clamp(16px, 1.631vw, 31.31px)'
                       }}
                     >

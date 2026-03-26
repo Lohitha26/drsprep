@@ -365,6 +365,17 @@
   transform: translateY(1px) !important;
 }
 
+/* Mentor Card Hover Gradient Border */
+.mentor-card-hover {
+  border: 1px solid #CACACA;
+  transition: all 0.3s ease;
+}
+.mentor-card-hover:hover {
+  border-color: transparent;
+  background: linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+              linear-gradient(180deg, #01B8D4 0%, #FFFFFF 100%) border-box !important;
+}
+
 /* Resource Card Hover Gradient Border */
 .resource-card-hover {
   position: relative;
