@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronDown } from "lucide-react";
 import { useAuthStore } from "@/lib/store";
@@ -141,6 +141,18 @@ export default function GetStartedModal() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
 
+  // Disable body scroll when modal is open
+  useEffect(() => {
+    if (isGetStartedOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isGetStartedOpen]);
+
   const validate = (name: string, value: string) => {
     switch (name) {
       case "fullName":
@@ -241,359 +253,368 @@ export default function GetStartedModal() {
               top: "50%",
               left: "50%",
               zIndex: 9999,
-              width: "clamp(340px, 90vw, 448px)",
-              maxHeight: "90vh",
-              overflowY: "auto",
-              borderRadius: "clamp(16px, 1.25vw, 24px)",
+              width: "min(862px, 94vw)",
+              borderRadius: "24px",
               background: "#FFFFFF",
-              padding: "clamp(24px, 1.667vw, 32px)",
+              padding: "0",
+              overflow: "hidden",
             }}
           >
-            {/* Close Button */}
-            <button
-              onClick={closeGetStarted}
-              style={{
-                position: "absolute",
-                top: "clamp(12px, 0.677vw, 13px)",
-                right: "clamp(12px, 0.677vw, 13px)",
-                width: "clamp(28px, 1.667vw, 32px)",
-                height: "clamp(28px, 1.667vw, 32px)",
-                borderRadius: "50%",
-                background: "#DBFAFE",
-                border: "2px solid #0097A7",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-                transition: "all 0.2s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#00B8D4";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "#DBFAFE";
-              }}
-            >
-              <X
-                style={{
-                  width: "clamp(16px, 1.042vw, 20px)",
-                  height: "clamp(16px, 1.042vw, 20px)",
-                  color: "#0097A7",
-                }}
-              />
-            </button>
-
-            {/* Header */}
             <div
               style={{
+                padding: "clamp(24px, 2.5vw, 38px) clamp(24px, 2.5vw, 38px) clamp(28px, 3vw, 40px)",
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                gap: "clamp(6px, 0.417vw, 8px)",
-                marginBottom: "clamp(24px, 2.083vw, 40px)",
               }}
             >
-              <h2
+              {/* Close Button */}
+              <button
+                onClick={closeGetStarted}
                 style={{
-                  fontFamily: "Poppins",
-                  fontWeight: 700,
-                  fontSize: "clamp(24px, 1.563vw, 30px)",
-                  lineHeight: "clamp(30px, 1.875vw, 36px)",
-                  textAlign: "center",
-                  color: "#0F172A",
-                  margin: 0,
+                  position: "absolute",
+                  top: "19px",
+                  right: "22px",
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "50%",
+                  background: "#DBFAFE",
+                  border: "2px solid #0097A7",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = "#00B8D4";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = "#DBFAFE";
                 }}
               >
-                Get Started with{" "}
-                <span style={{ color: "#00B8D4" }}>DRSPREP</span>
-              </h2>
-              <p
-                style={{
-                  fontFamily: "Poppins",
-                  fontWeight: 400,
-                  fontSize: "clamp(14px, 0.833vw, 16px)",
-                  lineHeight: "clamp(20px, 1.25vw, 24px)",
-                  textAlign: "center",
-                  color: "#64748B",
-                  margin: 0,
-                }}
-              >
-                Fill in your details to start your free trial
-              </p>
-            </div>
+                <X
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    color: "#0097A7",
+                  }}
+                />
+              </button>
 
-            {/* Form */}
-            <form onSubmit={handleSubmit} noValidate>
+              {/* Header */}
               <div
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  gap: "clamp(12px, 1.042vw, 20px)",
+                  alignItems: "center",
+                  gap: "8px",
+                  marginBottom: "clamp(20px, 2.5vw, 32px)",
+                  paddingTop: "clamp(0px, 0.5vw, 8px)",
                 }}
               >
-                {/* Full Name */}
-                <div style={fieldGap}>
-                  <label style={labelStyle}>
-                    Full Name<RequiredStar />
-                  </label>
-                  <input
-                    type="text"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleChange}
-                    placeholder="Enter your full name"
-                    required
-                    style={{
-                      ...inputStyle,
-                      borderColor: errors.fullName && touched.fullName ? "#EF4444" : "#E2E8F0",
-                    }}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "#00B8D4";
-                    }}
-                    onBlur={handleBlur}
-                  />
-                  {errors.fullName && touched.fullName && (
-                    <p style={errorStyle}>{errors.fullName}</p>
-                  )}
-                </div>
+                <h2
+                  style={{
+                    fontFamily: "Poppins",
+                    fontWeight: 700,
+                    fontSize: "30px",
+                    lineHeight: "36px",
+                    textAlign: "center",
+                    color: "#0F172A",
+                    margin: 0,
+                  }}
+                >
+                  Get Started with{" "}
+                  <span style={{ color: "#00B8D4" }}>DRSPREP</span>
+                </h2>
+                <p
+                  style={{
+                    fontFamily: "Poppins",
+                    fontWeight: 400,
+                    fontSize: "16px",
+                    lineHeight: "24px",
+                    textAlign: "center",
+                    color: "#64748B",
+                    margin: 0,
+                  }}
+                >
+                  Fill in your details to start your free trial
+                </p>
+              </div>
 
-                {/* Email Address */}
-                <div style={fieldGap}>
-                  <label style={labelStyle}>
-                    Email Address<RequiredStar />
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Enter your email"
-                    required
-                    style={{
-                      ...inputStyle,
-                      borderColor: errors.email && touched.email ? "#EF4444" : "#E2E8F0",
-                    }}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "#00B8D4";
-                    }}
-                    onBlur={handleBlur}
-                  />
-                  {errors.email && touched.email && (
-                    <p style={errorStyle}>{errors.email}</p>
-                  )}
-                </div>
-
-                {/* Phone Number */}
-                <div style={fieldGap}>
-                  <label style={labelStyle}>
-                    Phone Number<RequiredStar />
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    placeholder="Enter your phone number"
-                    required
-                    style={{
-                      ...inputStyle,
-                      borderColor: errors.phone && touched.phone ? "#EF4444" : "#E2E8F0",
-                    }}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "#00B8D4";
-                    }}
-                    onBlur={handleBlur}
-                  />
-                  {errors.phone && touched.phone && (
-                    <p style={errorStyle}>{errors.phone}</p>
-                  )}
-                </div>
-
-                {/* Year of Study */}
-                <div style={fieldGap}>
-                  <label style={labelStyle}>
-                    Year of Study
-                  </label>
-                  <div style={{ position: "relative" }}>
-                    <select
-                      name="yearOfStudy"
-                      value={formData.yearOfStudy}
+              {/* Form */}
+              <form onSubmit={handleSubmit} noValidate>
+                <div
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(2, 1fr)",
+                    gap: "17px 19px",
+                    maxWidth: "787px",
+                    margin: "0 auto",
+                  }}
+                  className="modal-form-grid"
+                >
+                  {/* Row 1: Full Name + Email */}
+                  <div style={fieldGap}>
+                    <label style={labelStyle}>
+                      Full Name<RequiredStar />
+                    </label>
+                    <input
+                      type="text"
+                      name="fullName"
+                      value={formData.fullName}
                       onChange={handleChange}
+                      placeholder="Enter your full name"
+                      required
                       style={{
-                        ...selectStyle,
-                        color: formData.yearOfStudy ? "#0F172A" : "rgba(15, 23, 42, 0.5)",
+                        ...inputStyle,
+                        borderColor: errors.fullName && touched.fullName ? "#EF4444" : "#E2E8F0",
                       }}
                       onFocus={(e) => {
                         e.currentTarget.style.borderColor = "#00B8D4";
                       }}
-                      onBlur={(e) => {
-                        e.currentTarget.style.borderColor = "#E2E8F0";
-                      }}
-                    >
-                      <option value="">Select Year</option>
-                      {yearOptions.map((year) => (
-                        <option key={year} value={year}>
-                          {year}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown
-                      style={{
-                        position: "absolute",
-                        right: "clamp(12px, 0.833vw, 16px)",
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        width: "clamp(16px, 1.042vw, 20px)",
-                        height: "clamp(16px, 1.042vw, 20px)",
-                        color: "#878B94",
-                        pointerEvents: "none",
-                      }}
+                      onBlur={handleBlur}
                     />
+                    {errors.fullName && touched.fullName && (
+                      <p style={errorStyle}>{errors.fullName}</p>
+                    )}
                   </div>
-                </div>
 
-                {/* University */}
-                <div style={fieldGap}>
-                  <label style={labelStyle}>
-                    University<RequiredStar />
-                  </label>
-                  <input
-                    type="text"
-                    name="university"
-                    value={formData.university}
-                    onChange={handleChange}
-                    placeholder="Enter your university name"
-                    required
-                    style={{
-                      ...inputStyle,
-                      borderColor: errors.university && touched.university ? "#EF4444" : "#E2E8F0",
-                    }}
-                    onFocus={(e) => {
-                      e.currentTarget.style.borderColor = "#00B8D4";
-                    }}
-                    onBlur={handleBlur}
-                  />
-                  {errors.university && touched.university && (
-                    <p style={errorStyle}>{errors.university}</p>
-                  )}
-                </div>
-
-                {/* Country */}
-                <div style={fieldGap}>
-                  <label style={labelStyle}>
-                    Country
-                  </label>
-                  <div style={{ position: "relative" }}>
-                    <select
-                      name="country"
-                      value={formData.country}
+                  <div style={fieldGap}>
+                    <label style={labelStyle}>
+                      Email Address<RequiredStar />
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
                       onChange={handleChange}
+                      placeholder="Enter your email"
+                      required
                       style={{
-                        ...selectStyle,
-                        color: formData.country ? "#0F172A" : "rgba(15, 23, 42, 0.5)",
+                        ...inputStyle,
+                        borderColor: errors.email && touched.email ? "#EF4444" : "#E2E8F0",
                       }}
                       onFocus={(e) => {
                         e.currentTarget.style.borderColor = "#00B8D4";
                       }}
-                      onBlur={(e) => {
-                        e.currentTarget.style.borderColor = "#E2E8F0";
-                      }}
-                    >
-                      <option value="">Select Country</option>
-                      {countryOptions.map((country) => (
-                        <option key={country} value={country}>
-                          {country}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown
-                      style={{
-                        position: "absolute",
-                        right: "clamp(12px, 0.833vw, 16px)",
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        width: "clamp(16px, 1.042vw, 20px)",
-                        height: "clamp(16px, 1.042vw, 20px)",
-                        color: "#878B94",
-                        pointerEvents: "none",
-                      }}
+                      onBlur={handleBlur}
                     />
+                    {errors.email && touched.email && (
+                      <p style={errorStyle}>{errors.email}</p>
+                    )}
                   </div>
-                </div>
 
-                {/* State/Province */}
-                <div style={fieldGap}>
-                  <label style={labelStyle}>
-                    State / Province
-                  </label>
-                  <div style={{ position: "relative" }}>
-                    <select
-                      name="state"
-                      value={formData.state}
+                  {/* Row 2: Phone + Year of Study */}
+                  <div style={fieldGap}>
+                    <label style={labelStyle}>
+                      Phone Number<RequiredStar />
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
                       onChange={handleChange}
+                      placeholder="Enter your phone number"
+                      required
                       style={{
-                        ...selectStyle,
-                        color: formData.state ? "#0F172A" : "rgba(15, 23, 42, 0.5)",
+                        ...inputStyle,
+                        borderColor: errors.phone && touched.phone ? "#EF4444" : "#E2E8F0",
                       }}
                       onFocus={(e) => {
                         e.currentTarget.style.borderColor = "#00B8D4";
                       }}
-                      onBlur={(e) => {
-                        e.currentTarget.style.borderColor = "#E2E8F0";
-                      }}
-                    >
-                      <option value="">Select State</option>
-                      {stateOptions.map((state) => (
-                        <option key={state} value={state}>
-                          {state}
-                        </option>
-                      ))}
-                    </select>
-                    <ChevronDown
-                      style={{
-                        position: "absolute",
-                        right: "clamp(12px, 0.833vw, 16px)",
-                        top: "50%",
-                        transform: "translateY(-50%)",
-                        width: "clamp(16px, 1.042vw, 20px)",
-                        height: "clamp(16px, 1.042vw, 20px)",
-                        color: "#878B94",
-                        pointerEvents: "none",
-                      }}
+                      onBlur={handleBlur}
                     />
+                    {errors.phone && touched.phone && (
+                      <p style={errorStyle}>{errors.phone}</p>
+                    )}
+                  </div>
+
+                  <div style={fieldGap}>
+                    <label style={labelStyle}>
+                      Year of Study
+                    </label>
+                    <div style={{ position: "relative" }}>
+                      <select
+                        name="yearOfStudy"
+                        value={formData.yearOfStudy}
+                        onChange={handleChange}
+                        style={{
+                          ...selectStyle,
+                          color: formData.yearOfStudy ? "#0F172A" : "rgba(15, 23, 42, 0.5)",
+                        }}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = "#00B8D4";
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = "#E2E8F0";
+                        }}
+                      >
+                        <option value="">Select Year</option>
+                        {yearOptions.map((year) => (
+                          <option key={year} value={year}>
+                            {year}
+                          </option>
+                        ))}
+                      </select>
+                      <ChevronDown
+                        style={{
+                          position: "absolute",
+                          right: "16px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          width: "20px",
+                          height: "20px",
+                          color: "#878B94",
+                          pointerEvents: "none",
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Row 3: University + Country */}
+                  <div style={fieldGap}>
+                    <label style={labelStyle}>
+                      University<RequiredStar />
+                    </label>
+                    <input
+                      type="text"
+                      name="university"
+                      value={formData.university}
+                      onChange={handleChange}
+                      placeholder="Enter your university name"
+                      required
+                      style={{
+                        ...inputStyle,
+                        borderColor: errors.university && touched.university ? "#EF4444" : "#E2E8F0",
+                      }}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = "#00B8D4";
+                      }}
+                      onBlur={handleBlur}
+                    />
+                    {errors.university && touched.university && (
+                      <p style={errorStyle}>{errors.university}</p>
+                    )}
+                  </div>
+
+                  <div style={fieldGap}>
+                    <label style={labelStyle}>
+                      Country
+                    </label>
+                    <div style={{ position: "relative" }}>
+                      <select
+                        name="country"
+                        value={formData.country}
+                        onChange={handleChange}
+                        style={{
+                          ...selectStyle,
+                          color: formData.country ? "#0F172A" : "rgba(15, 23, 42, 0.5)",
+                        }}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = "#00B8D4";
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = "#E2E8F0";
+                        }}
+                      >
+                        <option value="">Select Country</option>
+                        {countryOptions.map((country) => (
+                          <option key={country} value={country}>
+                            {country}
+                          </option>
+                        ))}
+                      </select>
+                      <ChevronDown
+                        style={{
+                          position: "absolute",
+                          right: "16px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          width: "20px",
+                          height: "20px",
+                          color: "#878B94",
+                          pointerEvents: "none",
+                        }}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Row 4: State (left column only) */}
+                  <div style={fieldGap}>
+                    <label style={labelStyle}>
+                      State / Province
+                    </label>
+                    <div style={{ position: "relative" }}>
+                      <select
+                        name="state"
+                        value={formData.state}
+                        onChange={handleChange}
+                        style={{
+                          ...selectStyle,
+                          color: formData.state ? "#0F172A" : "rgba(15, 23, 42, 0.5)",
+                        }}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = "#00B8D4";
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = "#E2E8F0";
+                        }}
+                      >
+                        <option value="">Select State</option>
+                        {stateOptions.map((state) => (
+                          <option key={state} value={state}>
+                            {state}
+                          </option>
+                        ))}
+                      </select>
+                      <ChevronDown
+                        style={{
+                          position: "absolute",
+                          right: "16px",
+                          top: "50%",
+                          transform: "translateY(-50%)",
+                          width: "20px",
+                          height: "20px",
+                          color: "#878B94",
+                          pointerEvents: "none",
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
 
                 {/* Submit Button */}
-                <button
-                  type="submit"
-                  style={{
-                    width: "100%",
-                    height: "clamp(44px, 2.708vw, 52px)",
-                    background: "#00B8D4",
-                    borderRadius: "clamp(10px, 0.625vw, 12px)",
-                    border: "none",
-                    fontFamily: "Poppins",
-                    fontWeight: 600,
-                    fontSize: "clamp(16px, 0.9375vw, 18px)",
-                    lineHeight: "clamp(24px, 1.458vw, 28px)",
-                    textAlign: "center",
-                    color: "#FFFFFF",
-                    cursor: "pointer",
-                    marginTop: "clamp(12px, 1.042vw, 20px)",
-                    transition: "background 0.2s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.background = "#0097A7";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "#00B8D4";
-                  }}
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
+                <div style={{ maxWidth: "384px", margin: "clamp(20px, 2.5vw, 40px) auto 0" }}>
+                  <button
+                    type="submit"
+                    style={{
+                      width: "100%",
+                      height: "52px",
+                      background: "#00B8D4",
+                      borderRadius: "12px",
+                      border: "none",
+                      fontFamily: "Poppins",
+                      fontWeight: 600,
+                      fontSize: "18px",
+                      lineHeight: "28px",
+                      textAlign: "center",
+                      color: "#FFFFFF",
+                      cursor: "pointer",
+                      transition: "background 0.2s ease",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = "#0097A7";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = "#00B8D4";
+                    }}
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
           </motion.div>
         </>
       )}

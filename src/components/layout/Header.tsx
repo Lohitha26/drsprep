@@ -26,14 +26,13 @@ export default function Header() {
       }}
     >
       <div
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
         style={{
           width: "100%",
-          maxWidth: "1920px",
           height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          padding: "0 clamp(16px, 11.667vw, 224px)",
           position: "relative",
         }}
       >

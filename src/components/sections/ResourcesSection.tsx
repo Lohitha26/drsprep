@@ -57,7 +57,7 @@ function ResourceCard({ icon: Icon, title, desc, index }: ResourceCardProps) {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       custom={index}
-      className="rounded-2xl p-6 hover:shadow-lg transition-all duration-300 resource-card-hover"
+      className="rounded-2xl p-6 transition-all duration-300 resource-card-hover"
       style={{
         background: '#F1FCFF',
         padding: 'clamp(16px, 1.25vw, 24px)',

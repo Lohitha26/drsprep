@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { useAuthStore } from "@/lib/store";
 import { fadeInLeft, fadeInRight, fadeInUp, staggerContainer } from "@/lib/animations";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -15,12 +16,20 @@ const featurePills = [
 ];
 
 export default function HeroSection() {
-  const { openLogin, openGetStarted } = useAuthStore();
+  const { openLogin, openGetStarted, openExplore } = useAuthStore();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 425);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   return (
     <>
       <section 
-        className="relative pt-16 sm:pt-18 lg:pt-20 pb-16 overflow-hidden"
+        className="relative pt-16 sm:pt-18 lg:pt-20 overflow-hidden"
         style={{
           background: 'linear-gradient(135deg, #E0F7FA 0%, #E2F7FB 7.14%, #E5F8FB 14.29%, #E7F8FC 21.43%, #E9F8FD 28.57%, #EBF8FE 35.71%, #EEF9FE 42.86%, #F0F9FF 50%, #EEF8FF 58.33%, #EBF8FF 66.67%, #E9F7FF 75%, #E6F6FE 83.33%, #E4F6FE 91.67%, #E1F5FE 100%)',
           position: 'relative'
@@ -152,10 +161,7 @@ export default function HeroSection() {
 
                 {/* Explore Programs Button */}
                 <button
-                  onClick={() => {
-                    const element = document.getElementById('features-showcase');
-                    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                  }}
+                  onClick={openExplore}
                   className="btn-3d-outline"
                   style={{
                     width: 'clamp(180px, 11.04vw, 212px)',
@@ -187,7 +193,7 @@ export default function HeroSection() {
               className="flex-1 w-full max-w-2xl"
             >
               <img 
-                src="/images/Home banner.png" 
+                src={isMobile ? "/images/Home banner mobile.svg" : "/images/Home banner.svg"}
                 alt="Medical professionals" 
                 style={{
                   width: '100%',

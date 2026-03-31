@@ -8,9 +8,10 @@ import { Monitor, FileEdit, Play, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 const icons = [
-    { iconSrc: "/icons/laptop why drsprep icon.svg", label: "Learn" },
-    { iconSrc: "/icons/notepad.svg", label: "Practice" },
-    { iconSrc: "/icons/Vector.svg", label: "Watch" },
+    { iconSrc: "/icons/Icon-1.svg", label: "Learn" },
+    { iconSrc: "/icons/Icon-2.svg", label: "Practice" },
+    { iconSrc: "/icons/Icon-3.svg", label: "Watch" },
+    { iconSrc: "/icons/Icon-4.svg", label: "AI Bot" },
 ];
 
 const points = [
@@ -27,7 +28,7 @@ export default function DrsPrepMain() {
     return (
         <section
             ref={ref}
-            className="py-20 overflow-hidden"
+            className="py-12 lg:py-16 overflow-hidden"
             style={{
                 background: 'linear-gradient(90deg, #F6FAFB 0%, #ECF9FB 22.6%, #F6FAFB 45.19%)'
             }}
@@ -41,8 +42,8 @@ export default function DrsPrepMain() {
                     animate={isInView ? "visible" : "hidden"}
                     className="relative flex items-center justify-center"
                     style={{
-                        minHeight: 'clamp(350px, 31.25vw, 600px)',
-                        marginBottom: 'clamp(40px, 3.125vw, 60px)'
+                        minHeight: 'clamp(400px, 35vw, 670px)',
+                        marginBottom: 'clamp(24px, 2vw, 40px)'
                     }}
                 >
                     {/* DRS Text - Left */}
@@ -71,17 +72,30 @@ export default function DrsPrepMain() {
                     <div
                         className="relative z-10"
                         style={{
-                            width: 'clamp(250px, 20.833vw, 400px)',
+                            width: 'clamp(300px, 28.65vw, 550px)',
                             height: 'auto'
                         }}
                     >
                         <Image
                             src="/images/Phone app.png"
                             alt="DrsPrep App"
-                            width={400}
-                            height={600}
-                            style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
-                            priority
+                            width={1000}
+                            height={1300}
+                            // style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
+                            // priority
+                        />
+                        {/* Bottom fade overlay */}
+                        <div
+                            style={{
+                                position: 'absolute',
+                                bottom: 0,
+                                left: 0,
+                                right: 0,
+                                height: '30%',
+                                background: 'linear-gradient(to bottom, transparent 0%, #EFF9FB 100%)',
+                                pointerEvents: 'none',
+                                zIndex: 2
+                            }}
                         />
                     </div>
 
@@ -120,34 +134,20 @@ export default function DrsPrepMain() {
                     }}
                 >
                     {icons.map((item, index) => (
-                        <div key={item.label} className="flex items-center" style={{ gap: 'clamp(16px, 1.667vw, 32px)' }}>
-                            {/* Circle Icon */}
-                            <div
+                        <div key={item.label} className="flex items-center" style={{ gap: 'clamp(12px, 1.25vw, 24px)' }}>
+                            {/* Icon SVG */}
+                            <Image
+                                src={item.iconSrc}
+                                alt={item.label}
+                                width={index === 3 ? 136 : 96}
+                                height={index === 3 ? 136 : 96}
                                 style={{
-                                    aspectRatio: '1',
-                                    width: 'clamp(57px, 1vw, 96px)',
-                                    borderRadius: '50%',
-                                    background: 'linear-gradient(130.48deg, #E6F8FC 13.41%, #BFE9EF 86.26%)',
-                                    border: '1px solid',
-                                    borderImageSource: 'linear-gradient(180deg, #FFFFFF 0%, #63C1CF 120.83%)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
+                                    width: index === 3 ? 'clamp(80px, 7vw, 136px)' : 'clamp(60px, 5vw, 96px)',
+                                    height: index === 3 ? 'clamp(80px, 7vw, 136px)' : 'clamp(60px, 5vw, 96px)',
+                                    objectFit: 'contain',
                                     flexShrink: 0
                                 }}
-                            >
-                                <Image
-                                    src={item.iconSrc}
-                                    alt={item.label}
-                                    width={44}
-                                    height={44}
-                                    style={{
-                                        width: 'clamp(28px, 2.5vw, 44px)',
-                                        height: 'clamp(28px, 2.5vw, 44px)',
-                                        objectFit: 'contain'
-                                    }}
-                                />
-                            </div>
+                            />
 
                             {/* Arrow between icons */}
                             {index < icons.length - 1 && (
@@ -162,36 +162,6 @@ export default function DrsPrepMain() {
                             )}
                         </div>
                     ))}
-
-                    {/* Arrow before Group icon */}
-                    <ChevronRight
-                        style={{
-                            width: 'clamp(16px, 1.25vw, 24px)',
-                            height: 'clamp(16px, 1.25vw, 24px)',
-                            color: '#94A3B8',
-                            strokeWidth: 'clamp(2px, 0.139vw, 2.67px)'
-                        }}
-                    />
-
-                    {/* Group.png (AI Bot Icon) */}
-                    <div
-                        style={{
-                            aspectRatio: '1',
-                            width: 'clamp(75px, 5vw, 96px)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            flexShrink: 0
-                        }}
-                    >
-                        <Image
-                            src="/icons/Group.png"
-                            alt="AI Bot"
-                            width={136}
-                            height={92}
-                            style={{ width: '100%', height: 'auto', objectFit: 'contain' }}
-                        />
-                    </div>
                 </motion.div>
 
                 {/* Section 3: Heading */}

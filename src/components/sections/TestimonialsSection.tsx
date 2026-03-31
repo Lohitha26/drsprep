@@ -98,9 +98,37 @@ export default function TestimonialsSection() {
                   height: 'clamp(100px, 6.91vw, 132.69px)',
                   borderRadius: '50%',
                   background: 'linear-gradient(135deg, #E0F7FA 0%, #DCF6F9 10%, #D7F5F8 20%, #D3F3F8 30%, #CEF2F7 40%, #C9F1F6 50%, #C5F0F5 60%, #C0EFF4 70%, #BCEDF4 80%, #B7ECF3 90%, #B2EBF2 100%)',
-                  marginBottom: 'clamp(16px, 1.25vw, 24px)'
+                  marginBottom: 'clamp(16px, 1.25vw, 24px)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: 'clamp(6px, 0.45vw, 8.63px)'
                 }}
-              />
+              >
+                {/* White Inner Circle */}
+                <div
+                  style={{
+                    width: 'clamp(86px, 5.99vw, 115px)',
+                    height: 'clamp(86px, 5.99vw, 115px)',
+                    borderRadius: '50%',
+                    background: '#FFFFFF',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: 'Poppins',
+                      fontWeight: 600,
+                      fontSize: 'clamp(24px, 2.25vw, 43.16px)',
+                      color: '#00B8D4'
+                    }}
+                  >
+                    {mentor.name.split(' ')[1]?.[0] || ''}
+                  </span>
+                </div>
+              </div>
 
               {/* Expert Mentor Tag */}
               <div

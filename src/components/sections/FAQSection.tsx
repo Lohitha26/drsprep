@@ -48,7 +48,6 @@ export default function FAQSection() {
           animate={isInView ? "visible" : "hidden"}
           className="text-center"
           style={{
-            maxWidth: 'clamp(800px, 79.24vw, 1521.35px)',
             margin: '0 auto clamp(60px, 6.25vw, 120px) auto'
           }}
         >
@@ -88,8 +87,7 @@ export default function FAQSection() {
           animate={isInView ? "visible" : "hidden"}
           className="flex flex-col"
           style={{
-            maxWidth: 'clamp(700px, 52.19vw, 1002.06px)',
-            margin: '0 auto',
+            width: '100%',
             gap: 'clamp(16px, 1.088vw, 20.88px)'
           }}
         >
@@ -107,7 +105,7 @@ export default function FAQSection() {
                   : 'linear-gradient(180deg, #E9F8FD 0%, #FFFFFF 100%)',
                 border: '1px solid #88D8E4',
                 overflow: 'hidden',
-                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)'
+                // boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04)'
               }}
             >
               <button

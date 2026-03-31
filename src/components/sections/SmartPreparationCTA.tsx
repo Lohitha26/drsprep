@@ -64,7 +64,6 @@ export default function SmartPreparationCTA() {
           animate={isInView ? "visible" : "hidden"}
           className="relative overflow-hidden"
           style={{
-            maxWidth: 'clamp(900px, 76.61vw, 1471px)',
             height: 'auto',
             margin: '0 auto',
             borderRadius: 'clamp(16px, 1.25vw, 24px)',
@@ -77,48 +76,20 @@ export default function SmartPreparationCTA() {
             position: 'relative'
           }}
         >
-          {/* Gradient Grid Lines */}
-          <div
+          {/* Grid SVG overlay */}
+          <img
+            src="/images/top grid svg.svg"
+            alt=""
             style={{
               position: 'absolute',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background: 'linear-gradient(269.82deg, rgba(255, 255, 255, 0.3) -22.77%, rgba(255, 255, 255, 0) 144.27%)',
-              opacity: 0.3,
-              pointerEvents: 'none'
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              pointerEvents: 'none',
+              zIndex: 0
             }}
-          >
-            {/* Vertical lines */}
-            {[...Array(8)].map((_, i) => (
-              <div
-                key={`v-${i}`}
-                style={{
-                  position: 'absolute',
-                  left: `${i * 12.5}%`,
-                  top: 0,
-                  bottom: 0,
-                  width: '1px',
-                  background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%)'
-                }}
-              />
-            ))}
-            {/* Horizontal lines */}
-            {[...Array(4)].map((_, i) => (
-              <div
-                key={`h-${i}`}
-                style={{
-                  position: 'absolute',
-                  top: `${i * 33.33}%`,
-                  left: 0,
-                  right: 0,
-                  height: '1px',
-                  background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 100%)'
-                }}
-              />
-            ))}
-          </div>
+          />
 
           {/* Content */}
           <div style={{ position: 'relative', zIndex: 1, textAlign: 'center' }}>

@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function CTASection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const { openLogin } = useAuthStore();
+  const { openLogin, openExplore } = useAuthStore();
 
   return (
     <section
@@ -19,7 +19,23 @@ export default function CTASection() {
         background: 'linear-gradient(135deg, #00B8D4 0%, #00B3CD 7.14%, #00AEC7 14.29%, #00AAC0 21.43%, #00A5BA 28.57%, #00A0B4 35.71%, #009CAD 42.86%, #0097A7 50%, #009AAB 57.14%, #009DAE 64.29%, #00A0B2 71.43%, #00A3B6 78.57%, #00A6BA 85.71%, #00A9BD 92.86%, #00ACC1 100%)'
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Grid overlay */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 0,
+          pointerEvents: 'none'
+        }}
+      >
+        <Image
+          src="/images/footer grid.png"
+          alt=""
+          fill
+          style={{ objectFit: 'cover' }}
+        />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ position: 'relative', zIndex: 1 }}>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left Content */}
           <motion.div
@@ -81,7 +97,7 @@ export default function CTASection() {
 
               {/* Explore Courses Button */}
               <button
-                onClick={() => document.getElementById("resources")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={openExplore}
                 className="btn-3d-ghost"
                 style={{
                   width: 'clamp(180px, 11.223vw, 215.49px)',

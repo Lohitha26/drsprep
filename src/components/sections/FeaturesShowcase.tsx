@@ -3,7 +3,8 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight } from "@/lib/animations";
-import { ClipboardCheck, Lightbulb, Image as ImageIcon, FileText, Check } from "lucide-react";
+import { ClipboardCheck, Lightbulb, Image as ImageIcon, FileText } from "lucide-react";
+import Image from "next/image";
 
 const features = [
   {
@@ -199,12 +200,14 @@ export default function FeaturesShowcase() {
                     key={idx}
                     className="flex items-center gap-3"
                   >
-                    <Check
+                    <Image
+                      src="/icons/tick.svg"
+                      alt="Check"
+                      width={24}
+                      height={24}
                       style={{
                         width: 'clamp(18px, 1.25vw, 24px)',
                         height: 'clamp(18px, 1.25vw, 24px)',
-                        color: '#00B8D4',
-                        strokeWidth: 'clamp(1.5px, 0.082vw, 1.58px)',
                         flexShrink: 0
                       }}
                     />

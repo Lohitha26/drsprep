@@ -27,12 +27,9 @@ export default function FeatureBar() {
   return (
     <section
       ref={ref}
+      className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       style={{
-        background: 'transparent',
-        display: 'flex',
-        justifyContent: 'center',
-        padding: '0 clamp(16px, 1.25vw, 24px)',
-        marginTop: 'clamp(-40px, -2.083vw, -20px)',
+        marginTop: 'clamp(-24px, -3.67vw, -70px)',
         marginBottom: 'clamp(20px, 2.083vw, 40px)',
         position: 'relative',
         zIndex: 10
@@ -45,7 +42,6 @@ export default function FeatureBar() {
         className="flex flex-col sm:flex-row items-center justify-center"
         style={{
           width: '100%',
-          maxWidth: 'clamp(900px, 76.56vw, 1470px)',
           height: 'auto',
           minHeight: 'clamp(80px, 6.875vw, 132px)',
           background: '#FFFFFF',

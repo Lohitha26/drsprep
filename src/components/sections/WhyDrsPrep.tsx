@@ -140,10 +140,9 @@ export default function WhyDrsPrep() {
               key={feature.title}
               variants={fadeInUp}
               custom={index}
-              className="flex gap-6"
+              className="flex gap-6 feature-card-hover"
               style={{
                 background: '#FFFFFF',
-                border: 'clamp(2px, 0.144vw, 2.76px) solid #CEF1F6',
                 borderRadius: 'clamp(16px, 1.152vw, 22.11px)',
                 padding: `clamp(32px, 2.448vw, 46.99px) clamp(24px, 2.448vw, 46.99px) clamp(2px, 0.144vw, 2.76px) clamp(24px, 2.448vw, 46.99px)`,
                 minHeight: 'clamp(300px, 20.733vw, 398.06px)'

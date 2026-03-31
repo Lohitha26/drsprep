@@ -314,55 +314,66 @@
 
 /* 3D Button Effects */
 .btn-3d-primary {
-  box-shadow: 0 4px 6px rgba(0, 184, 212, 0.25), 0 2px 3px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  /* box-shadow: 0 4px 6px rgba(0, 184, 212, 0.25), 0 2px 3px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.15); */
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 .btn-3d-primary:hover {
-  box-shadow: 0 7px 14px rgba(0, 184, 212, 0.3), 0 3px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  /* box-shadow: 0 7px 14px rgba(0, 184, 212, 0.3), 0 3px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important; */
   transform: translateY(-2px) !important;
 }
 .btn-3d-primary:active {
-  box-shadow: 0 2px 4px rgba(0, 184, 212, 0.2), 0 1px 2px rgba(0, 0, 0, 0.06), inset 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+  /* box-shadow: 0 2px 4px rgba(0, 184, 212, 0.2), 0 1px 2px rgba(0, 0, 0, 0.04), inset 0 1px 3px rgba(0, 0, 0, 0.06) !important; */
   transform: translateY(1px) !important;
 }
 
 .btn-3d-outline {
-  box-shadow: 0 3px 6px rgba(0, 184, 212, 0.15), 0 2px 4px rgba(0, 0, 0, 0.06);
+  /* box-shadow: 0 3px 6px rgba(0, 184, 212, 0.15), 0 2px 4px rgba(0, 0, 0, 0.06); */
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 .btn-3d-outline:hover {
-  box-shadow: 0 6px 12px rgba(0, 184, 212, 0.2), 0 3px 6px rgba(0, 0, 0, 0.08) !important;
+  /* box-shadow: 0 6px 12px rgba(0, 184, 212, 0.2), 0 3px 6px rgba(0, 0, 0, 0.08) !important; */
   transform: translateY(-2px) !important;
 }
 .btn-3d-outline:active {
-  box-shadow: 0 1px 3px rgba(0, 184, 212, 0.12), 0 1px 2px rgba(0, 0, 0, 0.04), inset 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+  /* box-shadow: 0 1px 3px rgba(0, 184, 212, 0.12), 0 1px 2px rgba(0, 0, 0, 0.04), inset 0 1px 3px rgba(0, 0, 0, 0.06) !important; */
   transform: translateY(1px) !important;
 }
 
 .btn-3d-white {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.8); */
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 .btn-3d-white:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important; */
   transform: translateY(-2px) !important;
 }
 .btn-3d-white:active {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.04), inset 0 2px 4px rgba(0, 0, 0, 0.06) !important;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.04), inset 0 2px 4px rgba(0, 0, 0, 0.06) !important; */
   transform: translateY(1px) !important;
 }
 
 .btn-3d-ghost {
-  box-shadow: 0 3px 6px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 3px 6px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08); */
   transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
 }
 .btn-3d-ghost:hover {
-  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1) !important;
+  /* box-shadow: 0 6px 12px rgba(255, 255, 255, 0.15), 0 3px 6px rgba(0, 0, 0, 0.1) !important; */
   transform: translateY(-2px) !important;
 }
 .btn-3d-ghost:active {
-  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.08), inset 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  /* box-shadow: 0 1px 3px rgba(255, 255, 255, 0.08), inset 0 1px 3px rgba(0, 0, 0, 0.1) !important; */
   transform: translateY(1px) !important;
+}
+
+/* Mobile Viewport - Disable Horizontal Scroll */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Mentor Card Hover Gradient Border */
@@ -386,6 +397,72 @@
   border-color: transparent;
   background: linear-gradient(#F1FCFF, #F1FCFF) padding-box,
               linear-gradient(180deg, #00B8D4 0%, #FFFFFF 100%) border-box !important;
+}
+
+/* Mentor Card Hover Gradient Border */
+.mentor-card-hover {
+  position: relative;
+  border: 2.03px solid #CEF1F6;
+  transition: all 0.3s ease;
+}
+.mentor-card-hover:hover {
+  border: 2.6px solid transparent;
+  background: linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+              linear-gradient(180deg, #04B8D4 0%, #FFFFFF 100%) border-box !important;
+}
+
+/* WhyDrsPrep Feature Card Hover Gradient Border */
+.feature-card-hover {
+  position: relative;
+  border: clamp(2px, 0.144vw, 2.76px) solid #CEF1F6;
+  transition: all 0.3s ease;
+}
+.feature-card-hover:hover {
+  border: 2.76px solid transparent;
+  background: linear-gradient(#FFFFFF, #FFFFFF) padding-box,
+              linear-gradient(180deg, #02B8D4 0%, #FFFFFF 100%) border-box !important;
+}
+
+@media (max-width: 640px) {
+  .modal-form-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .study-cards-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px !important;
+    justify-items: center;
+  }
+  .study-cards-row > div:last-child {
+    grid-column: 1 / -1;
+  }
+  .study-connector {
+    display: none !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .study-cards-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 16px !important;
+    padding: 0 16px;
+  }
+  .study-cards-row > div {
+    width: 100%;
+    max-width: 269px;
+  }
+  .study-cards-row > div > div:first-child {
+    width: 100% !important;
+    height: 244.55px !important;
+  }
+  .study-connector {
+    display: none !important;
+  }
 }
 
 .btn-3d-small {

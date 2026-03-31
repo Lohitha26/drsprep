@@ -17,15 +17,17 @@ import LearningPoints from "@/components/sections/LearningPoints";
 import SmartPreparationCTA from "@/components/sections/SmartPreparationCTA";
 import FeaturesShowcase from "@/components/sections/FeaturesShowcase";
 import GetStartedModal from "@/components/auth/GetStartedModal";
+import ComingSoonModal from "@/components/modals/ComingSoonModal";
 
 export default function Home() {
   return (
-    <>
+    <div style={{ overflowX: 'hidden', width: '100%' }}>
       <Navbar />
       <div style={{ height: 'clamp(60px, 3.75vw, 72px)' }} />
       <DiscountBanner />
       <HeroSection />
       <FeatureBar />
+      
       <ResourcesSection />
       <LearningPoints />
       <TestimonialsSection />
@@ -42,6 +44,7 @@ export default function Home() {
       <CTASection />
       <Footer />
       <GetStartedModal />
-    </>
+      <ComingSoonModal />
+    </div>
   );
 }

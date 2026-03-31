@@ -9,6 +9,9 @@ interface AuthStore {
   isGetStartedOpen: boolean;
   openGetStarted: () => void;
   closeGetStarted: () => void;
+  isExploreOpen: boolean;
+  openExplore: () => void;
+  closeExplore: () => void;
 }
 
 export const useAuthStore = create<AuthStore>((set) => ({
@@ -18,4 +21,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
   isGetStartedOpen: false,
   openGetStarted: () => set({ isGetStartedOpen: true }),
   closeGetStarted: () => set({ isGetStartedOpen: false }),
+  isExploreOpen: false,
+  openExplore: () => set({ isExploreOpen: true }),
+  closeExplore: () => set({ isExploreOpen: false }),
 }));
