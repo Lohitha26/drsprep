@@ -36,7 +36,7 @@ export default function CTASection() {
         />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ position: 'relative', zIndex: 1 }}>
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-0">
+        <div className="cta-content-wrapper flex flex-col lg:flex-row items-center justify-between gap-0">
           {/* Left Content */}
           <motion.div
             variants={fadeInLeft}

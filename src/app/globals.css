@@ -445,6 +445,27 @@ body {
 }
 
 @media (max-width: 425px) {
+  /* Footer Mobile - Left align all content */
+  footer .grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  footer .grid > div {
+    justify-self: start !important;
+    text-align: left !important;
+  }
+  
+  footer h4,
+  footer ul,
+  footer p {
+    text-align: left !important;
+  }
+  
+  /* CTASection Mobile - Add gap between text and image */
+  .cta-content-wrapper {
+    gap: 32px !important;
+  }
+  
   /* GetStartedModal Mobile Optimizations */
   .modal-content-scroll {
     padding: 16px 16px 20px !important;
