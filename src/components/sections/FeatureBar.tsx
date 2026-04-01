@@ -29,7 +29,7 @@ export default function FeatureBar() {
       ref={ref}
       className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
       style={{
-        marginTop: 'clamp(-24px, -3.67vw, -70px)',
+        marginTop: 'clamp(-40px, -5.2vw, -100px)',
         marginBottom: 'clamp(20px, 2.083vw, 40px)',
         position: 'relative',
         zIndex: 10

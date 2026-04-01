@@ -461,9 +461,15 @@ body {
     text-align: left !important;
   }
   
-  /* CTASection Mobile - Add gap between text and image */
+  /* CTASection Mobile */
   .cta-content-wrapper {
     gap: 32px !important;
+    align-items: center !important;
+    text-align: center;
+  }
+  
+  .cta-content-wrapper .cta-buttons {
+    justify-content: center !important;
   }
   
   /* GetStartedModal Mobile Optimizations */

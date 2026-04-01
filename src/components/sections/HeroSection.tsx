@@ -29,7 +29,7 @@ export default function HeroSection() {
   return (
     <>
       <section 
-        className="relative pt-16 sm:pt-18 lg:pt-20 overflow-hidden"
+        className="relative pt-16 sm:pt-18 lg:pt-20 pb-0 overflow-hidden"
         style={{
           background: 'linear-gradient(135deg, #E0F7FA 0%, #E2F7FB 7.14%, #E5F8FB 14.29%, #E7F8FC 21.43%, #E9F8FD 28.57%, #EBF8FE 35.71%, #EEF9FE 42.86%, #F0F9FF 50%, #EEF8FF 58.33%, #EBF8FF 66.67%, #E9F7FF 75%, #E6F6FE 83.33%, #E4F6FE 91.67%, #E1F5FE 100%)',
           position: 'relative'
@@ -53,13 +53,14 @@ export default function HeroSection() {
         />
         
         {/* Content */}
-        <div style={{ position: 'relative', zIndex: 2 }}>
+        <div style={{ position: 'relative', zIndex: 2, paddingBottom: 'clamp(20px, 2vw, 40px)' }}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
-            className="flex flex-col lg:flex-row items-center justify-between gap-12"
+            className="flex flex-col lg:flex-row items-center justify-between gap-8"
             style={{
               display: 'flex',
-              alignItems: 'start'
+              alignItems: 'start',
+              paddingBottom: '0'
             }}
           >
             {/* Left Content */}

@@ -71,7 +71,7 @@ export default function CTASection() {
             >
               Join thousands of aspirants preparing smarter with DRSPREP.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="cta-buttons flex flex-wrap gap-4">
               {/* Start Free Trial Button */}
               <button
                 onClick={openLogin}
