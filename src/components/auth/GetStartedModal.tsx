@@ -82,21 +82,21 @@ const stateOptions = [
 const labelStyle = {
   fontFamily: "Poppins",
   fontWeight: 500,
-  fontSize: "clamp(12px, 0.729vw, 14px)",
-  lineHeight: "clamp(18px, 1.042vw, 20px)",
+  fontSize: "clamp(11px, 0.729vw, 14px)",
+  lineHeight: "clamp(16px, 1.042vw, 20px)",
   color: "#0F172A",
 } as const;
 
 const inputStyle = {
   width: "100%",
-  height: "clamp(44px, 2.708vw, 52px)",
-  padding: "clamp(10px, 0.625vw, 12px) clamp(12px, 0.833vw, 16px)",
+  height: "clamp(40px, 2.708vw, 52px)",
+  padding: "clamp(8px, 0.625vw, 12px) clamp(10px, 0.833vw, 16px)",
   border: "2px solid #E2E8F0",
-  borderRadius: "clamp(10px, 0.625vw, 12px)",
+  borderRadius: "clamp(8px, 0.625vw, 12px)",
   fontFamily: "Poppins",
   fontWeight: 400,
-  fontSize: "clamp(14px, 0.833vw, 16px)",
-  lineHeight: "clamp(20px, 1.25vw, 24px)",
+  fontSize: "clamp(13px, 0.833vw, 16px)",
+  lineHeight: "clamp(18px, 1.25vw, 24px)",
   color: "#0F172A",
   outline: "none",
   transition: "border-color 0.2s ease",
@@ -105,8 +105,8 @@ const inputStyle = {
 
 const selectStyle = {
   ...inputStyle,
-  height: "clamp(44px, 2.734vw, 52.5px)",
-  padding: "clamp(10px, 0.729vw, 14px) clamp(12px, 0.833vw, 16px)",
+  height: "clamp(40px, 2.734vw, 52.5px)",
+  padding: "clamp(8px, 0.729vw, 14px) clamp(10px, 0.833vw, 16px)",
   appearance: "none" as const,
   background: "#FFFFFF",
   cursor: "pointer",
@@ -254,6 +254,7 @@ export default function GetStartedModal() {
               left: "50%",
               zIndex: 9999,
               width: "min(862px, 94vw)",
+              maxHeight: "95vh",
               borderRadius: "24px",
               background: "#FFFFFF",
               padding: "0",
@@ -265,7 +266,10 @@ export default function GetStartedModal() {
                 padding: "clamp(24px, 2.5vw, 38px) clamp(24px, 2.5vw, 38px) clamp(28px, 3vw, 40px)",
                 display: "flex",
                 flexDirection: "column",
+                maxHeight: "95vh",
+                overflowY: "auto",
               }}
+              className="modal-content-scroll"
             >
               {/* Close Button */}
               <button
@@ -316,8 +320,8 @@ export default function GetStartedModal() {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: 700,
-                    fontSize: "30px",
-                    lineHeight: "36px",
+                    fontSize: "clamp(20px, 5vw, 30px)",
+                    lineHeight: "clamp(26px, 6vw, 36px)",
                     textAlign: "center",
                     color: "#0F172A",
                     margin: 0,
@@ -330,8 +334,8 @@ export default function GetStartedModal() {
                   style={{
                     fontFamily: "Poppins",
                     fontWeight: 400,
-                    fontSize: "16px",
-                    lineHeight: "24px",
+                    fontSize: "clamp(13px, 3.5vw, 16px)",
+                    lineHeight: "clamp(18px, 5vw, 24px)",
                     textAlign: "center",
                     color: "#64748B",
                     margin: 0,
@@ -585,19 +589,19 @@ export default function GetStartedModal() {
                 </div>
 
                 {/* Submit Button */}
-                <div style={{ maxWidth: "384px", margin: "clamp(20px, 2.5vw, 40px) auto 0" }}>
+                <div style={{ maxWidth: "384px", margin: "clamp(16px, 2.5vw, 40px) auto 0" }}>
                   <button
                     type="submit"
                     style={{
                       width: "100%",
-                      height: "52px",
+                      height: "clamp(44px, 2.7vw, 52px)",
                       background: "#00B8D4",
-                      borderRadius: "12px",
+                      borderRadius: "clamp(8px, 0.625vw, 12px)",
                       border: "none",
                       fontFamily: "Poppins",
                       fontWeight: 600,
-                      fontSize: "18px",
-                      lineHeight: "28px",
+                      fontSize: "clamp(15px, 0.94vw, 18px)",
+                      lineHeight: "clamp(22px, 1.46vw, 28px)",
                       textAlign: "center",
                       color: "#FFFFFF",
                       cursor: "pointer",

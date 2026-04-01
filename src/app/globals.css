@@ -445,6 +445,23 @@ body {
 }
 
 @media (max-width: 425px) {
+  /* GetStartedModal Mobile Optimizations */
+  .modal-content-scroll {
+    padding: 16px 16px 20px !important;
+  }
+  
+  .modal-form-grid {
+    gap: 12px !important;
+  }
+  
+  /* Reduce close button size on mobile */
+  .modal-content-scroll button[style*="position: absolute"] {
+    width: 28px !important;
+    height: 28px !important;
+    top: 12px !important;
+    right: 12px !important;
+  }
+  
   .study-cards-row {
     display: flex !important;
     flex-direction: column !important;
@@ -458,8 +475,30 @@ body {
   }
   .study-cards-row > div > div:first-child {
     width: 100% !important;
-    height: 244.55px !important;
+    height: 200px !important;
   }
+  
+  /* Icon container - larger on mobile */
+  .study-cards-row .study-icon-container {
+    top: clamp(43px, 11.31vw, 67.34px) !important;
+    width: 77px !important;
+    height: 77px !important;
+    aspect-ratio: 1;
+  }
+  
+  /* Icon inside container - larger on mobile */
+  .study-cards-row .study-icon-container svg {
+    width: 36px !important;
+    height: 36px !important;
+  }
+  
+  /* Label font - larger on mobile */
+  .study-cards-row .study-label {
+    font-size: 23px !important;
+    line-height: 26px !important;
+    bottom: 20px !important;
+  }
+  
   .study-connector {
     display: none !important;
   }

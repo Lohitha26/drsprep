@@ -44,9 +44,9 @@ export default function Footer() {
           paddingBottom: 'clamp(32px, 2.5vw, 48px)'
         }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12" style={{ alignItems: 'start' }}>
           {/* Brand */}
-          <div style={{ maxWidth: 'clamp(280px, 20vw, 384px)' }}>
+          <div style={{ maxWidth: 'clamp(280px, 20vw, 384px)', justifySelf: 'start' }}>
             <div style={{ marginBottom: 'clamp(16px, 1.25vw, 24px)' }}>
               <Image
                 src="/images/Main Logo.svg"
@@ -113,7 +113,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div style={{ justifySelf: 'center' }}>
             <h4
               style={{
                 fontFamily: 'Poppins',
@@ -157,7 +157,7 @@ export default function Footer() {
           </div>
 
           {/* Support */}
-          <div>
+          <div style={{ justifySelf: 'end' }}>
             <h4
               style={{
                 fontFamily: 'Poppins',

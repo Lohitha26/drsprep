@@ -36,7 +36,7 @@ export default function CTASection() {
         />
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" style={{ position: 'relative', zIndex: 1 }}>
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-0">
           {/* Left Content */}
           <motion.div
             variants={fadeInLeft}
@@ -135,8 +135,8 @@ export default function CTASection() {
           >
             <div
               style={{
-                width: 'clamp(240px, 16.667vw, 320px)',
-                height: 'clamp(240px, 16.667vw, 320px)',
+                width: 'clamp(260px, 22vw, 380px)',
+                height: 'clamp(260px, 22vw, 380px)',
                 borderRadius: '50%',
                 border: 'clamp(6px, 0.417vw, 8px) solid rgba(255, 255, 255, 0.2)',
                 padding: 'clamp(6px, 0.417vw, 8px)',
@@ -156,7 +156,7 @@ export default function CTASection() {
                 }}
               >
                 <Image
-                  src="/images/footer banner.jpg"
+                  src="/images/footer banner.png"
                   alt="Medical Professional"
                   fill
                   style={{

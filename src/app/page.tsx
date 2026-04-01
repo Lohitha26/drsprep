@@ -38,7 +38,7 @@ export default function Home() {
       <SmartPreparationCTA />
       <FeaturesShowcase />
       <FAQSection />
-      {/* <PricingSection /> */}
+   
       <StatsSection />
     
       <CTASection />

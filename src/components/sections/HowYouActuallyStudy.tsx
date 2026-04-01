@@ -134,6 +134,7 @@ export default function HowYouActuallyStudy() {
 
                     {/* Icon Container */}
                     <div
+                      className="study-icon-container"
                       style={{
                         position: 'absolute',
                         left: 'clamp(20px, 2.31vw, 44.34px)',
@@ -159,6 +160,7 @@ export default function HowYouActuallyStudy() {
 
                     {/* Label */}
                     <div
+                      className="study-label"
                       style={{
                         position: 'absolute',
                         left: 'clamp(20px, 2.31vw, 44.34px)',
