@@ -65,6 +65,7 @@ export default function Header() {
           onClick={openGetStarted}
           className="btn-3d-small"
           style={{
+            boxShadow:"none",
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",

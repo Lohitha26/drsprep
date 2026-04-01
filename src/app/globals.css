@@ -445,6 +445,28 @@ body {
 }
 
 @media (max-width: 425px) {
+  /* HeroSection Mobile - Tighten text spacing */
+  .hero-heading span[style*="margin-bottom"] {
+    margin-bottom: 0 !important;
+  }
+  
+  .hero-heading-group {
+    margin-bottom: 16px !important;
+  }
+  
+  .hero-heading {
+    line-height: 146% !important;
+  }
+  
+  .hero-description {
+    padding-top: 16px !important;
+    margin-bottom: 24px !important;
+  }
+  
+  .hero-buttons {
+    padding-top: 24px !important;
+  }
+  
   /* Footer Mobile - Left align all content */
   footer .grid {
     grid-template-columns: 1fr !important;
@@ -528,6 +550,30 @@ body {
   
   .study-connector {
     display: none !important;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  /* Footer Tablet - Left align all content */
+  .footer-quick-links {
+    justify-self: start !important;
+    text-align: left !important;
+  }
+  
+  .footer-support {
+    justify-self: start !important;
+    text-align: left !important;
+  }
+  
+  /* CTASection Tablet - Gap between content and image */
+  .cta-content-wrapper {
+    gap: 32px !important;
+    align-items: center !important;
+    text-align: center;
+  }
+  
+  .cta-content-wrapper .cta-buttons {
+    justify-content: center !important;
   }
 }
 

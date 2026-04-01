@@ -12,8 +12,8 @@ import {
   Brain,
   PenTool,
   Monitor,
-  Check,
 } from "lucide-react";
+import Image from "next/image";
 
 const features = [
   {
@@ -214,12 +214,14 @@ export default function WhyDrsPrep() {
                       marginTop: 'clamp(2px, 0.15vw, 3px)'
                     }}
                   >
-                    <Check
+                    <Image
+                      src="/icons/tick.svg"
+                      alt="Check"
+                      width={24}
+                      height={24}
                       style={{
                         width: '100%',
-                        height: '100%',
-                        color: '#00B8D4',
-                        strokeWidth: 'clamp(2px, 0.15vw, 2.88px)'
+                        height: '100%'
                       }}
                     />
                   </div>

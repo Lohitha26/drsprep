@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { fadeInUp } from "@/lib/animations";
 import { Mail } from "lucide-react";
@@ -28,6 +28,14 @@ const socials = [
 export default function Footer() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsSmallScreen(window.innerWidth <= 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   return (
     <footer 
@@ -113,7 +121,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div style={{ justifySelf: 'center' }}>
+          <div className="footer-quick-links" style={{ justifySelf: isSmallScreen ? 'start' : 'center' }}>
             <h4
               style={{
                 fontFamily: 'Poppins',
@@ -157,7 +165,7 @@ export default function Footer() {
           </div>
 
           {/* Support */}
-          <div style={{ justifySelf: 'end' }}>
+          <div className="footer-support" style={{ justifySelf: isSmallScreen ? 'start' : 'end' }}>
             <h4
               style={{
                 fontFamily: 'Poppins',

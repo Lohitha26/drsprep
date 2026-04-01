@@ -69,23 +69,27 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               className="flex-1 w-full max-w-3xl"
+              style={{ paddingRight: isMobile ? '0' : '39px' }}
             >
               <h1 
+                className="hero-heading"
                 style={{
                   fontFamily: 'Poppins',
                   fontWeight: 700,
-                  fontSize: 'clamp(24px, 1.979vw, 38px)',
-                  lineHeight: '100%',
+                  fontSize: 'clamp(24px, 1.979vw, 27px)',
+                  lineHeight: isMobile ? '146%' : '100%',
                   letterSpacing: '0px',
                   marginBottom: 'clamp(16px, 1.25vw, 24px)'
                 }}
               >
-                <span style={{ color: '#006B7A', display: 'block', marginBottom: '16px' }}>
-                  Get Video Lectures, QBank, Mock Tests,
-                </span>
-                <span style={{ color: '#006B7A', display: 'block', marginBottom: '16px' }}>
-                  and 1-on-1 Live Classes with Subject
-                </span>
+                <div className="hero-heading-group">
+                  <span style={{ color: '#006B7A', display: 'block', marginBottom: '16px' }}>
+                    Get Video Lectures, QBank, Mock Tests,
+                  </span>
+                  <span style={{ color: '#006B7A', display: 'block', marginBottom: '16px' }}>
+                    and 1-on-1 Live Classes with Subject
+                  </span>
+                </div>
                
                 <span style={{ color: '#000000' }}>
                   Matter Experts - all in one place.
@@ -93,6 +97,7 @@ export default function HeroSection() {
               </h1>
 
               <p
+                className="hero-description"
                 style={{
                   fontFamily: 'Poppins',
                   paddingTop:'4%',
@@ -113,7 +118,7 @@ export default function HeroSection() {
               </p>
 
               <div 
-                className="flex flex-wrap gap-4"
+                className="hero-buttons flex flex-wrap gap-4"
                 style={{ paddingTop: '8%' }}
               >
                 {/* Get Started Button */}
@@ -180,6 +185,12 @@ export default function HeroSection() {
                     alignItems: 'center',
                     justifyContent: 'center'
                   }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'linear-gradient(90deg, #FFFFFF 0%, #C9F5FF 100%)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'linear-gradient(90deg, #E7F8FC 0%, #FFFFFF 100%)';
+                  }}
                 >
                   Explore Programs
                 </button>
@@ -192,12 +203,15 @@ export default function HeroSection() {
               initial="hidden"
               animate="visible"
               className="flex-1 w-full max-w-2xl"
+              style={{ marginBottom: '-49px' ,
+                marginLeft: isMobile?'':'35px'
+              }}
             >
               <img 
                 src={isMobile ? "/images/Home banner mobile.svg" : "/images/Home banner.svg"}
                 alt="Medical professionals" 
                 style={{
-                  width: '100%',
+                  width: isMobile ? '100%' : '91%',
                   height: 'auto',
                   objectFit: 'contain'
                 }}

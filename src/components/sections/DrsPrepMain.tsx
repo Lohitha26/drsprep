@@ -43,7 +43,7 @@ export default function DrsPrepMain() {
                     className="relative flex items-center justify-center"
                     style={{
                         minHeight: 'clamp(400px, 35vw, 670px)',
-                        marginBottom: 'clamp(24px, 2vw, 40px)'
+                        // marginBottom: 'clamp(24px, 2vw, 40px)'
                     }}
                 >
                     {/* DRS Text - Left */}

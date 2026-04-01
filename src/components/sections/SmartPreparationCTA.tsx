@@ -161,7 +161,14 @@ export default function SmartPreparationCTA() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   position: 'absolute',
-                  right: 0
+                  right: 0,
+                  transition: 'background 0.3s ease'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.background = '#00B8D4';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.background = '#0097A7';
                 }}
               >
                 <ArrowRight style={{ color: '#FFFFFF', width: '24px', height: '24px' }} />
