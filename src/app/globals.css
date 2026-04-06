@@ -517,22 +517,26 @@ body {
     align-items: center !important;
     gap: 16px !important;
     padding: 0 16px;
+    flex-wrap: wrap !important;
   }
-  .study-cards-row > div {
+  .study-card-wrapper {
     width: 100%;
     max-width: 269px;
+    justify-content: center;
   }
-  .study-cards-row > div > div:first-child {
-    width: 100% !important;
-    height: 200px !important;
+  .study-card {
+    width: 269px !important;
+    aspect-ratio: 269 / 244.55 !important;
+    border-radius: 21.5px !important;
   }
   
   /* Icon container - larger on mobile */
   .study-cards-row .study-icon-container {
-    top: clamp(43px, 11.31vw, 67.34px) !important;
+    top: 30px !important;
+    left: 24px !important;
     width: 77px !important;
     height: 77px !important;
-    aspect-ratio: 1;
+    border-radius: 21.5px !important;
   }
   
   /* Icon inside container - larger on mobile */
@@ -541,11 +545,23 @@ body {
     height: 36px !important;
   }
   
+  /* Number badge - larger on mobile */
+  .study-card-wrapper .study-card > div:first-child {
+    width: 34px !important;
+    height: 34px !important;
+    top: -11px !important;
+    right: -11px !important;
+  }
+  .study-card-wrapper .study-card > div:first-child span {
+    font-size: 15px !important;
+  }
+  
   /* Label font - larger on mobile */
   .study-cards-row .study-label {
-    font-size: 23px !important;
-    line-height: 26px !important;
-    bottom: 20px !important;
+    font-size: 5.1vw !important;
+    line-height: 28px !important;
+    bottom: 24px !important;
+    left: 24px !important;
   }
   
   .study-connector {
@@ -554,6 +570,45 @@ body {
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
+  /* HowYouActuallyStudy Tablet - stack vertically */
+  .study-cards-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    flex-wrap: wrap !important;
+  }
+  .study-card-wrapper {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  .study-card {
+    width: 300px !important;
+    aspect-ratio: 269 / 244.55 !important;
+    border-radius: 21.5px !important;
+  }
+  .study-cards-row .study-icon-container {
+    top: 30px !important;
+    left: 28px !important;
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 21.5px !important;
+  }
+  .study-cards-row .study-icon-container svg {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .study-cards-row .study-label {
+    font-size: 22px !important;
+    line-height: 30px !important;
+    bottom: 24px !important;
+    left: 28px !important;
+  }
+  .study-connector {
+    display: none !important;
+  }
+
   /* Footer Tablet - Left align all content */
   .footer-quick-links {
     justify-self: start !important;

@@ -45,8 +45,7 @@ export default function FeatureBar() {
           height: 'auto',
           minHeight: 'clamp(80px, 6.875vw, 132px)',
           background: '#FFFFFF',
-          boxShadow: '0px 0px 9.9px 0px #00000014',
-          overflow: 'hidden'
+          boxShadow: '0px 0px 9.9px 0px #00000014'
         }}
       >
         {features.map((feature, index) => (
@@ -85,6 +84,7 @@ export default function FeatureBar() {
 
             {/* Label */}
             <span
+              className="feature-bar-label"
               style={{
                 fontFamily: 'Poppins',
                 fontWeight: 600,
@@ -92,7 +92,7 @@ export default function FeatureBar() {
                 lineHeight: 'clamp(22px, 1.691vw, 32.47px)',
                 letterSpacing: '0px',
                 color: '#0F172A',
-                whiteSpace: 'nowrap'
+                whiteSpace: 'normal'
               }}
             >
               {feature.label}

@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   description:
     "Access free video lectures, QBank, mock tests and more. Join thousands of medical aspirants preparing smarter with DrsPrep.",
   icons: {
-    icon: "/images/logo.png",
-    shortcut: "/images/logo.png",
-    apple: "/images/logo.png",
+    icon: "/icons/DrsPrep - Fav Icon.png",
+    shortcut: "/icons/DrsPrep - Fav Icon.png",
+    apple: "/icons/DrsPrep - Fav Icon.png",
   },
 };
 

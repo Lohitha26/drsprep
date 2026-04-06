@@ -83,34 +83,35 @@ export default function HowYouActuallyStudy() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              flexWrap: 'wrap',
+              flexWrap: 'nowrap',
               gap: '0',
+              maxWidth: '100%',
             }}
           >
             {studySteps.map((step, index) => {
               const IconComponent = step.icon;
               return (
-                <div key={step.label} style={{ display: 'flex', alignItems: 'center' }}>
+                <div key={step.label} className="study-card-wrapper" style={{ display: 'flex', alignItems: 'center', flex: index === studySteps.length - 1 ? 0.88 : 1, minWidth: 0 }}>
                   {/* Card */}
                   <div
+                    className="study-card"
                     style={{
                       position: 'relative',
-                      width: 'clamp(160px, 14.01vw, 269px)',
-                      height: 'clamp(150px, 12.73vw, 244.55px)',
+                      width: '100%',
+                      aspectRatio: '269 / 244.55',
                       background: '#FFFFFF',
                       border: '1.34px solid #B1E3EA',
                       borderRadius: 'clamp(14px, 1.12vw, 21.5px)',
-                      flexShrink: 0,
                     }}
                   >
                     {/* Number Badge */}
                     <div
                       style={{
                         position: 'absolute',
-                        top: 'clamp(-9px, -0.77vw, -14.78px)',
-                        right: 'clamp(-9px, -0.77vw, -14.78px)',
-                        width: 'clamp(32px, 2.52vw, 48.37px)',
-                        height: 'clamp(32px, 2.52vw, 48.37px)',
+                        top: 'clamp(-9px, -0.6vw, -11px)',
+                        right: 'clamp(-9px, -0.6vw, -11px)',
+                        width: 'clamp(24px, 1.8vw, 34px)',
+                        height: 'clamp(24px, 1.8vw, 34px)',
                         borderRadius: '50%',
                         background: step.numberBg,
                         display: 'flex',
@@ -123,7 +124,7 @@ export default function HowYouActuallyStudy() {
                         style={{
                           fontFamily: 'Poppins',
                           fontWeight: 700,
-                          fontSize: 'clamp(13px, 0.98vw, 18.81px)',
+                          fontSize: 'clamp(11px, 0.7vw, 14px)',
                           lineHeight: '27px',
                           color: '#FFFFFF',
                         }}
@@ -137,10 +138,10 @@ export default function HowYouActuallyStudy() {
                       className="study-icon-container"
                       style={{
                         position: 'absolute',
-                        left: 'clamp(20px, 2.31vw, 44.34px)',
-                        top: 'clamp(20px, 2.31vw, 44.34px)',
-                        width: 'clamp(60px, 5vw, 110px)',
-                        height: 'clamp(60px, 5vw, 110px)',
+                        left: 'clamp(16px, 1.5vw, 28px)',
+                        top: 'clamp(16px, 1.5vw, 28px)',
+                        width: 'clamp(44px, 3.5vw, 68px)',
+                        height: 'clamp(44px, 3.5vw, 68px)',
                         background: 'linear-gradient(135deg, #F2FDFF 0%, #C3F8FF 100%)',
                         borderRadius: 'clamp(14px, 1.12vw, 21.5px)',
                         display: 'flex',
@@ -150,8 +151,8 @@ export default function HowYouActuallyStudy() {
                     >
                       <IconComponent
                         style={{
-                          width: 'clamp(24px, 2.24vw, 43px)',
-                          height: 'clamp(24px, 2.24vw, 43px)',
+                          width: 'clamp(20px, 1.6vw, 30px)',
+                          height: 'clamp(20px, 1.6vw, 30px)',
                           color: '#00BCD4',
                         }}
                         strokeWidth={2.5}
@@ -163,16 +164,16 @@ export default function HowYouActuallyStudy() {
                       className="study-label"
                       style={{
                         position: 'absolute',
-                        left: 'clamp(20px, 2.31vw, 44.34px)',
-                        bottom: 'clamp(16px, 1.67vw, 32px)',
+                        left: 'clamp(16px, 1.5vw, 28px)',
+                        bottom: 'clamp(12px, 1.2vw, 22px)',
                       }}
                     >
                       <span
                         style={{
                           fontFamily: 'Poppins',
                           fontWeight: 700,
-                          fontSize: 'clamp(18px, 1.4vw, 26.87px)',
-                          lineHeight: 'clamp(26px, 1.96vw, 37.62px)',
+                          fontSize: 'clamp(14px, 3vw, 20px)',
+                          lineHeight: 'clamp(20px, 1.5vw, 28px)',
                           letterSpacing: '-0.67px',
                           color: '#1E293B',
                         }}
@@ -187,10 +188,10 @@ export default function HowYouActuallyStudy() {
                     <div
                       className="study-connector"
                       style={{
-                        width: 'clamp(16px, 2.24vw, 43px)',
+                        width: 'clamp(8px, 2.24vw, 43px)',
                         height: '2.69px',
                         background: '#E0F7FA',
-                        flexShrink: 0,
+                        flexShrink: 1,
                       }}
                     />
                   )}
