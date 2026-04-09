@@ -16,7 +16,8 @@ const features = [
       "AI performance analysis",
       "Detailed solutions"
     ],
-    imagePosition: "left"
+    imagePosition: "left",
+    imageSrc: "/images/main images/Advanced Mock Tests.svg"
   },
   {
     icon: Lightbulb,
@@ -27,7 +28,8 @@ const features = [
       "Explanation based learning",
       "Performance tracking"
     ],
-    imagePosition: "right"
+    imagePosition: "right",
+    imageSrc: "/images/main images/Smart Question Bank.svg"
   },
   {
     icon: ImageIcon,
@@ -38,7 +40,8 @@ const features = [
       "Diagnosis practice",
       "Exam style learning"
     ],
-    imagePosition: "left"
+    imagePosition: "left",
+    imageSrc: "/images/main images/Clinical Image Based Questions.svg"
   },
   {
     icon: FileText,
@@ -49,7 +52,8 @@ const features = [
       "Quick concept refresh",
       "Perfect for last revision"
     ],
-    imagePosition: "right"
+    imagePosition: "right",
+    imageSrc: "/images/main images/Rapid Revision Notes.svg"
   }
 ];
 
@@ -89,36 +93,28 @@ export default function FeaturesShowcase() {
               style={{
                 width: '100%',
                 maxWidth: isMobile ? '100%' : 'clamp(400px, 36.21vw, 695.13px)',
-                height: isMobile ? '250px' : 'clamp(300px, 24.97vw, 479.4px)',
-                background: 'linear-gradient(135deg, #E0F7FA 0%, #E2F7FB 14.29%, #E5F8FB 28.57%, #E7F8FC 42.86%, #E9F8FD 57.14%, #EBF8FE 71.43%, #EEF9FE 85.71%, #F0F9FF 100%)',
+                height: isMobile ? 'clamp(220px, 55vw, 300px)' : 'clamp(300px, 24.97vw, 479.4px)',
+                background: 'linear-gradient(209.7deg, #FFFFFF 19.4%, #EBFCFF 83.31%)',
                 borderRadius: 'clamp(14px, 1.052vw, 20.19px)',
-                padding: 'clamp(24px, 2.103vw, 40.37px)',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                position: 'relative',
+                overflow: 'hidden'
               }}
             >
-              {/* Image Placeholder */}
-              <div
+              <Image
+                src={feature.imageSrc}
+                alt={feature.title}
+                width={365}
+                height={374}
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  background: '#FFFFFF',
-                  borderRadius: 'clamp(10px, 0.833vw, 16px)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
+                  width: isMobile ? 'clamp(180px, 50vw, 280px)' : 'clamp(250px, 18.99vw, 364.56px)',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  marginTop: isMobile ? '0' : 'clamp(20px, 2.76vw, 53px)'
                 }}
-              >
-                <ImageIcon
-                  style={{
-                    width: 'clamp(60px, 5.208vw, 100px)',
-                    height: 'clamp(60px, 5.208vw, 100px)',
-                    color: '#B2EBF2',
-                    strokeWidth: 1.5
-                  }}
-                />
-              </div>
+              />
             </motion.div>
 
             {/* Content Container */}
