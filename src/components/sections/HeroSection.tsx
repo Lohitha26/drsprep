@@ -197,25 +197,163 @@ export default function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Right Image */}
+            {/* Right - Phone with Orbiting Icons */}
             <motion.div
               variants={fadeInRight}
               initial="hidden"
               animate="visible"
               className="flex-1 w-full max-w-2xl"
-              style={{ marginBottom: '-49px' ,
-                marginLeft: isMobile?'':'35px'
+              style={{
+                marginBottom: '-49px',
+                marginLeft: isMobile ? '' : '35px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
             >
-              <img 
-                src={isMobile ? "/images/Home banner mobile.svg" : "/images/Home banner.svg"}
-                alt="Medical professionals" 
+              <div
                 style={{
-                  width: isMobile ? '100%' : '91%',
-                  height: 'auto',
-                  objectFit: 'contain'
+                  position: 'relative',
+                  width: isMobile ? '100%' : 'clamp(400px, 32vw, 580px)',
+                  aspectRatio: '1 / 1',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
-              />
+              >
+                {/* Dashed Ellipse Orbit */}
+                <img
+                  src="/icons/Ellipse.svg"
+                  alt=""
+                  style={{
+                    position: 'absolute',
+                    top: '40%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '82%',
+                    height: '100%',
+                    objectFit: 'contain',
+                    pointerEvents: 'none',
+                  }}
+                />
+
+                {/* Phone Image */}
+                <img
+                  src="/icons/phone image without background.png"
+                  alt="DrsPrep App"
+                  style={{
+                    position: 'relative',
+                    zIndex: 2,
+                    width: '100%',
+                    height: 'auto',
+                    objectFit: 'contain',
+                  }}
+                />
+
+                {/* Icon 1 - Video (top-left, ~10 o'clock) */}
+                <motion.img
+                  src="/icons/Icon-1 2.svg"
+                  alt="Live Classes"
+                  animate={{
+                    y: [0, -18, 0],
+                    x: [0, 2, 0],
+                  }}
+                  transition={{
+                    duration: 2.8,
+                    repeat: Infinity,
+                    repeatType: 'loop',
+                    ease: 'easeInOut',
+                    delay: 0,
+                  }}
+                  style={{
+                    position: 'absolute',
+                    top: '15%',
+                    left: '10%',
+                    transform: 'translate(-50%, -50%)',
+                    width: 'clamp(48px, 4vw, 72px)',
+                    height: 'auto',
+                    zIndex: 3,
+                  }}
+                />
+
+                {/* Icon 4 - Pencil (top-right, ~2 o'clock) */}
+                <motion.img
+                  src="/icons/Icon-4svg.svg"
+                  alt="Exam Writing"
+                  animate={{
+                    y: [0, -16, 0],
+                    x: [0, -2, 0],
+                  }}
+                  transition={{
+                    duration: 3.2,
+                    repeat: Infinity,
+                    repeatType: 'loop',
+                    ease: 'easeInOut',
+                    delay: 0.8,
+                  }}
+                  style={{
+                    position: 'absolute',
+                    top: '16%',
+                    left: '79%',
+                    transform: 'translate(-50%, -50%)',
+                    width: 'clamp(48px, 4vw, 72px)',
+                    height: 'auto',
+                    zIndex: 3,
+                  }}
+                />
+
+                {/* Icon 2 - Document (bottom-left, ~8 o'clock) */}
+                <motion.img
+                  src="/icons/Icon-2 2.svg"
+                  alt="Curated Notes"
+                  animate={{
+                    y: [0, 16, 0],
+                    x: [0, -2, 0],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    repeatType: 'loop',
+                    ease: 'easeInOut',
+                    delay: 1.6,
+                  }}
+                  style={{
+                    position: 'absolute',
+                    top: '39%',
+                    left: '4%',
+                    transform: 'translate(-50%, -50%)',
+                    width: 'clamp(52px, 4vw, 83px)',
+                    height: 'auto',
+                    zIndex: 3,
+                  }}
+                />
+
+                {/* Icon 3 - Brain (right, ~4 o'clock) */}
+                <motion.img
+                  src="/icons/Icon-3 2.svg"
+                  alt="Smart Learning"
+                  animate={{
+                    y: [0, 18, 0],
+                    x: [0, 2, 0],
+                  }}
+                  transition={{
+                    duration: 2.6,
+                    repeat: Infinity,
+                    repeatType: 'loop',
+                    ease: 'easeInOut',
+                    delay: 2.4,
+                  }}
+                  style={{
+                    position: 'absolute',
+                    top: '40%',
+                    left: '82%',
+                    transform: 'translate(-50%, -50%)',
+                    width: 'clamp(52px, 4vw, 83px)',
+                    height: 'auto',
+                    zIndex: 3,
+                  }}
+                />
+              </div>
             </motion.div>
           </div>
         </div>

@@ -87,7 +87,18 @@ export default function LearningPoints() {
                   custom={index}
                   className="flex items-center gap-4"
                 >
-                  <div
+                  <motion.div
+                    animate={{
+                      y: [0, -6, 0],
+                      rotate: [0, 3, 0, -3, 0],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      repeatType: 'loop',
+                      ease: 'easeInOut',
+                      delay: index * 0.4,
+                    }}
                     style={{
                       flexShrink: 0,
                       width: 'clamp(32px, 2.5vw, 48px)',
@@ -108,7 +119,7 @@ export default function LearningPoints() {
                         objectFit: 'contain'
                       }}
                     />
-                  </div>
+                  </motion.div>
                   <p
                     style={{
                       fontFamily: 'Poppins',
